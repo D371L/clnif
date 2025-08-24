@@ -20,3 +20,31 @@ document.querySelectorAll('#y').forEach(el => el.textContent = new Date().getFul
     });
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lb.classList.remove('open'); });
 })();
+
+// Mobile drawer
+(function(){
+    const btn = document.querySelector('.nav-toggle');
+    const drawer = document.getElementById('mobileNav');
+    const scrim = document.querySelector('.scrim');
+    if(!btn || !drawer || !scrim) return;
+
+    const open = () => {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden','false');
+        btn.setAttribute('aria-expanded','true');
+        scrim.hidden = false;
+        document.body.style.overflow='hidden';
+    };
+    const close = () => {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+        btn.setAttribute('aria-expanded','false');
+        scrim.hidden = true;
+        document.body.style.overflow='';
+    };
+
+    btn.addEventListener('click', open);
+    scrim.addEventListener('click', close);
+    drawer.querySelector('.drawer-close')?.addEventListener('click', close);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+})();

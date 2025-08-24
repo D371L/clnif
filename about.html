@@ -14,13 +14,29 @@
         <div class="brand">
             <img class="logo-img" src="assets/logo.svg" alt="CLNIF logo" width="180" height="45" loading="eager">
         </div>
-        <nav>
+
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+            ☰
+        </button>
+
+        <nav class="nav-desktop">
             <a class="btn" href="index.html">Home</a>
             <a class="btn primary" href="about.html">About</a>
             <a class="btn" href="transparency.html">Transparency</a>
             <a class="btn" href="gallery.html">Gallery</a>
             <a class="btn" href="contact.html">Contact</a>
         </nav>
+
+        <aside id="mobileNav" class="nav-drawer" aria-hidden="true">
+            <button class="drawer-close" aria-label="Close menu">✕</button>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="transparency.html">Transparency</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </aside>
+        <div class="scrim" hidden></div>
+
     </header>
 
     <section class="hero">
