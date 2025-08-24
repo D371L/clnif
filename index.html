@@ -1,198 +1,56 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="format-detection" content="telephone=no" />
-    <title>CLNIF — Website under construction</title>
-    <meta name="description" content="Champions League for Neighborhoods in Football — official website is under construction and will be available soon.">
-    <meta name="robots" content="noindex,nofollow" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="CLNIF — Coming Soon" />
-    <meta property="og:site_name" content="clnif.org" />
-    <meta property="og:description" content="Champions League for Neighborhoods in Football. Website under construction." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://clnif.org" />
-
-    <!-- Favicon (inline SVG) -->
-    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%233aa1ff"/><stop offset="1" stop-color="%2320d39b"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="%23121821"/><path d="M14 46V18h10a8 8 0 010 16h-6v12h-4Zm14 0V18h4v24h10v4H28Z" fill="url(%23g)"/></svg>' />
-
-    <style>
-        :root{
-            --bg:#0b0f13; --card:#121821; --text:#e8eef7; --muted:#9bb0c3;
-            --blue:#3aa1ff; --teal:#20d39b; --violet:#9b7bff; --pink:#ff6fa8; --amber:#ffc554;
-            --radius:18px;
-            --pad:clamp(16px, 3.5vw, 24px);
-            --fs-h1:clamp(22px, 3.6vw, 30px);
-            --fs-body:clamp(14px, 2.2vw, 16px);
-        }
-        *{box-sizing:border-box}
-        html,body{height:100%}
-        body{
-            margin:0;
-            -webkit-text-size-adjust:100%;
-            background:
-                    radial-gradient(1200px 800px at 80% -10%, rgba(58,161,255,.15), transparent 60%),
-                    radial-gradient(900px 700px at -10% 110%, rgba(32,211,155,.12), transparent 60%),
-                    var(--bg);
-            color:var(--text);
-            font:var(--fs-body)/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Naskh Arabic","Noto Kufi Arabic","Apple Color Emoji","Segoe UI Emoji";
-            display:grid; place-items:center; padding:var(--pad);
-            overflow-x:hidden;
-        }
-        .wrap{
-            width:min(1000px,100%);
-            background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--card);
-            border:1px solid rgba(255,255,255,.06);
-            border-radius:var(--radius);
-            box-shadow:0 12px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
-            padding:0 var(--pad) var(--pad);
-        }
-
-        .top{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 0 8px; flex-wrap:wrap}
-        .brand{display:flex; align-items:center; gap:10px; min-width:220px}
-        .logo{
-            background:linear-gradient(135deg, var(--blue), var(--teal));
-            color:#00121b; font-weight:800; font-size:13px; padding:8px 10px; border-radius:10px;
-            letter-spacing:.4px; box-shadow:0 0 0 3px rgba(58,161,255,.18);
-            flex:0 0 auto;
-        }
-        .brand strong{font-size:clamp(14px,2.2vw,16px)}
-        nav{display:flex; gap:8px; flex-wrap:wrap}
-        .btn{
-            border:1px solid rgba(255,255,255,.12); color:#e9f1ff; background:rgba(255,255,255,.02);
-            padding:8px 12px; border-radius:10px; font-size:14px; text-decoration:none;
-            transition:.18s ease; display:inline-flex; align-items:center; gap:8px;
-            touch-action:manipulation;
-        }
-        .btn:hover{border-color:rgba(255,255,255,.25); transform:translateY(-1px)}
-        .btn.primary{background:linear-gradient(135deg, var(--blue), var(--teal)); color:#04131e; border-color:transparent}
-
-        .hero{
-            margin:6px 0 16px; padding:18px var(--pad); border-radius:16px;
-            background:
-                    radial-gradient(600px 160px at 15% 0%, rgba(58,161,255,.22), transparent 60%),
-                    radial-gradient(700px 180px at 85% 0%, rgba(32,211,155,.18), transparent 60%),
-                    rgba(255,255,255,.02);
-            border:1px solid rgba(255,255,255,.06);
-        }
-        .hero h1{margin:0 0 6px; font-size:var(--fs-h1); line-height:1.25}
-        .hero p{margin:0; color:var(--muted)}
-        .tagline{margin-top:8px; font-size:14px; color:#cfe0f4}
-
-        .panel{display:grid; gap:12px; grid-template-columns:1fr; margin:16px 0 8px}
-        @media (min-width:620px){ .panel{grid-template-columns:repeat(2,1fr)} }
-        @media (min-width:920px){ .panel{grid-template-columns:repeat(3,1fr)} }
-
-        .card{
-            position:relative; background:rgba(255,255,255,.02);
-            border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:14px; overflow:hidden;
-            transition:.18s ease;
-        }
-        .card:hover{border-color:rgba(255,255,255,.16); transform:translateY(-2px)}
-        .card::before{
-            content:""; position:absolute; inset:0 0 auto 0; height:4px;
-            background:linear-gradient(90deg,var(--blue),var(--teal),var(--violet),var(--pink)); opacity:.9;
-        }
-        .lang{display:flex; gap:8px; flex-wrap:wrap}
-        .lang h2{margin:0 0 6px; font-size:16px; color:#cfe0f4; letter-spacing:.2px}
-        .muted{color:var(--muted)}
-        .row{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:10px 0 0}
-        .pill{--c: rgba(255,255,255,.1);
-            border:1px solid var(--c); color:#e6f0ff; padding:6px 10px; border-radius:999px; font-size:13px;
-            background:rgba(255,255,255,.03); backdrop-filter:saturate(140%);
-        }
-        .pill.blue{  --c: color-mix(in oklab, var(--blue) 55%, transparent);  background:color-mix(in oklab, var(--blue) 16%, transparent) }
-        .pill.teal{  --c: color-mix(in oklab, var(--teal) 55%, transparent);  background:color-mix(in oklab, var(--teal) 16%, transparent) }
-        .pill.violet{--c: color-mix(in oklab, var(--violet)55%, transparent); background:color-mix(in oklab, var(--violet)16%, transparent) }
-        .pill.pink{  --c: color-mix(in oklab, var(--pink) 55%, transparent);  background:color-mix(in oklab, var(--pink) 16%, transparent) }
-        .pill.amber{ --c: color-mix(in oklab, var(--amber)55%, transparent); background:color-mix(in oklab, var(--amber)16%, transparent) }
-
-        .about{margin-top:8px; padding:14px; border-radius:14px; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.06)}
-        .about h3{margin:0 0 6px; font-size:clamp(16px,2.4vw,18px)}
-        .about p{margin:0; color:var(--muted)}
-
-        footer{margin-top:16px; display:flex; align-items:center; justify-content:space-between; gap:12px; color:var(--muted); font-size:13px; flex-wrap:wrap}
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CLNIF — Champions League for Neighborhoods in Football</title>
+    <link rel="icon" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main class="wrap" role="main" aria-label="Coming soon">
-    <div class="top">
+<div class="container">
+    <header class="top">
         <div class="brand">
-            <span class="logo" aria-label="Official acronym">CLNIF</span>
-            <strong>Champions League for Neighborhoods in Football</strong>
+            <img class="logo-img" src="assets/logo.svg" alt="CLNIF logo" width="180" height="45" loading="eager">
         </div>
         <nav>
-            <a class="btn" href="#about">About</a>
-            <a class="btn primary" href="mailto:ligatasho2021@gmail.com?subject=CLNIF%20—%20website%20contact" rel="nofollow">Email us</a>
+            <a class="btn primary" href="index.html">Home</a>
+            <a class="btn" href="about.html">About</a>
+            <a class="btn" href="transparency.html">Transparency</a>
+            <a class="btn" href="gallery.html">Gallery</a>
+            <a class="btn" href="contact.html">Contact</a>
         </nav>
-    </div>
+    </header>
 
-    <section class="hero" aria-label="Status">
-        <h1>Website under construction</h1>
-        <p>We’re building our official website. Launch coming soon.</p>
+    <section class="hero">
+        <h1>Welcome to Champions League for Neighborhoods in Football</h1>
+        <p>We are a non-profit initiative that connects youth and neighborhoods through football, promoting inclusion, respect, and fair play.</p>
         <div class="tagline">Community • Youth • Football</div>
     </section>
 
-    <section class="panel">
-        <!-- Hebrew -->
-        <article class="card lang" dir="rtl" lang="he">
-            <div>
-                <h2>עברית</h2>
-                <p class="muted">האתר הרשמי נמצא בהקמה ויעלה לאוויר בקרוב. תודה על הסבלנות.</p>
-                <div class="row" aria-hidden="true">
-                    <span class="pill amber">עמותה</span>
-                    <span class="pill blue">כדורגל</span>
-                    <span class="pill teal">קהילה</span>
-                </div>
-            </div>
+    <section class="grid">
+        <article class="card">
+            <h3>Our Mission</h3>
+            <p class="muted">To empower young people and strengthen communities by using football as a tool for education, health, and social cohesion.</p>
         </article>
-
-        <!-- Russian -->
-        <article class="card lang" lang="ru">
-            <div>
-                <h2>Русский</h2>
-                <p class="muted">Сайт на стадии разработки. Спасибо за ожидание.</p>
-                <div class="row" aria-hidden="true">
-                    <span class="pill teal">НКО</span>
-                    <span class="pill blue">Футбол</span>
-                    <span class="pill pink">Сообщество</span>
-                </div>
-            </div>
+        <article class="card">
+            <h3>Our Values</h3>
+            <p class="muted">Respect • Fair Play • Inclusion • Transparency. We are committed to open communication and clear governance.</p>
         </article>
-
-        <!-- Arabic -->
-        <article class="card lang" dir="rtl" lang="ar">
-            <div>
-                <h2>العربية</h2>
-                <p class="muted">الموقع الرسمي قيد الإنشاء وسيكون متاحًا قريبًا. شكرًا على صبركم.</p>
-                <div class="row" aria-hidden="true">
-                    <span class="pill amber">جمعية</span>
-                    <span class="pill blue">كرة القدم</span>
-                    <span class="pill teal">مجتمع</span>
-                </div>
-            </div>
+        <article class="card">
+            <h3>Transparency</h3>
+            <p class="muted">As a registered non-profit association, we believe in full transparency. Learn more about our governance and financial reports.</p>
+            <p><a class="btn primary" href="transparency.html">See Transparency</a></p>
         </article>
-    </section>
-
-    <section id="about" class="about" aria-label="About">
-        <h3>About CLNIF</h3>
-        <p>Champions League for Neighborhoods in Football — non‑profit initiative that connects youth and community through football. The full website with program details and contact information will go live soon.</p>
     </section>
 
     <footer>
-        <span>© <span id="y"></span> CLNIF — Champions League for Neighborhoods in Football • <span id="upd"></span></span>
+        <span>© <span id="y"></span> CLNIF</span>
         <span>contact: <a href="mailto:ligatasho2021@gmail.com">ligatasho2021@gmail.com</a></span>
     </footer>
-</main>
-
-<script>
-    const d=new Date();
-    document.getElementById('y').textContent=d.getFullYear();
-    document.getElementById('upd').textContent="Last updated: "+
-        d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
-</script>
+</div>
+<script src="main.js"></script>
 </body>
 </html>
