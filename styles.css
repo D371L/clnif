@@ -86,19 +86,37 @@ footer{
 @media(min-width:1200px){ .gallery-grid{ grid-template-columns:repeat(4,1fr) } }
 
 .gallery-item{
+    display:block; /* чтобы aspect-ratio работал как у блока */
     position:relative; overflow:hidden; border-radius:12px;
     border:1px solid rgba(255,255,255,.08);
     background:#0d1218;
+    aspect-ratio: 16/9; /* фиксируем 16:9 */
+    cursor:pointer;
+}
+/* ... existing code ... */
+.gallery-item.img-fallback{
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
+      repeating-linear-gradient(45deg, #0f141a, #0f141a 10px, #0c1117 10px, #0c1117 20px);
+}
+.gallery-item.img-fallback::after{
+    content: "Image unavailable";
+    position:absolute; inset:auto 8px 8px 8px;
+    color: var(--muted); font-size: 12px; text-align: right;
+    opacity: .9;
 }
 .gallery-item img{
-    display:block; width:100%;
-    height: clamp(140px, 22vw, 180px); /* ниже — чуть ниже превью */
-    object-fit:cover; transition:transform .25s ease;
+    position: absolute; inset: 0; /* растянуть на всю область плитки */
+    width: 100%; height: 100%;
+    object-fit: cover; display:block;
 }
-@media (prefers-reduced-motion: reduce){
-    .gallery-item img{ transition:none }
-}
-.gallery-item:hover img{ transform:scale(1.04) }
+/* ... existing code ... */
+
+/* Make sure overlays never cover content unless open */
+.lightbox{ display:none; }
+.lightbox.open{ display:flex; }
+
+.scrim[hidden]{ display:none !important; }
 
 /* Lightbox */
 .lightbox{

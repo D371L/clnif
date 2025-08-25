@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://clnif.org/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2025-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://clnif.org/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://clnif.org/transparency.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://clnif.org/gallery.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://clnif.org/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-08-25</lastmod>
+  </url>
+</urlset>
