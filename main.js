@@ -73,4 +73,89 @@ document.querySelectorAll('#y').forEach(el => el.textContent = new Date().getFul
     const drawer = document.getElementById('mobileNav');
     const scrim = document.querySelector('.scrim');
     if(!btn || !drawer) return;
+
+    const closeBtn = drawer.querySelector('.drawer-close');
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    let prevFocus = null;
+    let isOpen = false;
+
+    const getFocusables = () => Array.from(drawer.querySelectorAll(focusableSelector))
+        .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+
+    function openDrawer() {
+        prevFocus = document.activeElement;
+        isOpen = true;
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        btn.setAttribute('aria-expanded', 'true');
+        if (scrim) scrim.hidden = false;
+        document.body.style.overflow = 'hidden';
+        const f = getFocusables();
+        (f[0] || closeBtn || drawer).focus();
+    }
+
+    function closeDrawer() {
+        isOpen = false;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded', 'false');
+        if (scrim) scrim.hidden = true;
+        document.body.style.overflow = '';
+        if (prevFocus && typeof prevFocus.focus === 'function') prevFocus.focus();
+    }
+
+    // Toggle on burger click
+    btn.addEventListener('click', () => {
+        if (isOpen) closeDrawer(); else openDrawer();
+    });
+
+    // Close on X button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeDrawer);
+    }
+
+    // Close when clicking scrim
+    if (scrim) {
+        scrim.addEventListener('click', closeDrawer);
+    }
+
+    // Close when clicking a link inside drawer
+    drawer.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (a) closeDrawer();
+    });
+
+    // Esc to close
+    document.addEventListener('keydown', (e) => {
+        if (!isOpen) return;
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            closeDrawer();
+        } else if (e.key === 'Tab') {
+            // Focus trap
+            const f = getFocusables();
+            if (!f.length) return;
+            const first = f[0];
+            const last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
+    // On resize to desktop, ensure body scroll restored and drawer hidden state consistent
+    window.addEventListener('resize', () => {
+        // If CSS switches to desktop and drawer is visually hidden, clear locks
+        if (!drawer.classList.contains('open')) {
+            document.body.style.overflow = '';
+            if (scrim) scrim.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+            drawer.setAttribute('aria-hidden', 'true');
+            isOpen = false;
+        }
+    });
 })();
