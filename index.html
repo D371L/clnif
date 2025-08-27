@@ -6,24 +6,45 @@
     <title>Champions League for Neighborhoods in Football</title>
 
     <link rel="icon" href="assets/favicon.svg">
-    <link rel="apple-touch-icon" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="canonical" href="https://clnif.org/">
     <link rel="stylesheet" href="styles.css">
+
     <!-- SEO -->
     <meta name="description" content="CLNIF unites youth and neighborhoods through football. Explore our mission, programs, schedule, and transparent reports.">
     <meta property="og:title" content="Champions League for Neighborhoods in Football">
     <meta property="og:description" content="Community • Youth • Football">
-    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:image" content="https://clnif.org/assets/og-image.jpg">
     <meta property="og:url" content="https://clnif.org">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Champions League for Neighborhoods in Football">
     <meta name="twitter:description" content="Community • Youth • Football">
-    <meta name="twitter:image" content="assets/og-image.jpg">
+    <meta name="twitter:image" content="https://clnif.org/assets/og-image.jpg">
+
+    <!-- Structured data: Organization -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Champions League for Neighborhoods in Football",
+            "alternateName": "CLNIF",
+            "url": "https://clnif.org/",
+            "logo": "https://clnif.org/assets/og-image.jpg",
+            "email": "info@clnif.org",
+            "sameAs": [
+                "https://t.me/youngpeopleforhaifa",
+                "https://clnif.org/"
+            ],
+            "foundingLocation": "Haifa, Israel",
+            "taxID": "580739340",
+            "description": "Non-profit in Israel uniting youth across neighborhoods through football leagues, tournaments, and mentoring."
+        }
+    </script>
 </head>
 <body>
-<div class="container">
+<a class="skip-link" href="#about">Skip to content</a>
 
+<div class="container">
     <!-- Header -->
     <header class="top">
         <div class="brand">
@@ -32,10 +53,9 @@
 
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">☰</button>
 
+        <!-- NAV trimmed: Home / Gallery / Contact -->
         <nav class="nav-desktop" aria-label="Primary">
             <a class="btn" href="index.html" aria-current="page">Home</a>
-            <a class="btn" href="about.html">About</a>
-            <a class="btn" href="transparency.html">Transparency</a>
             <a class="btn" href="gallery.html">Gallery</a>
             <a class="btn" href="contact.html">Contact</a>
         </nav>
@@ -43,11 +63,10 @@
         <aside id="mobileNav" class="nav-drawer" aria-hidden="true" aria-label="Mobile">
             <button class="drawer-close" aria-label="Close menu">✕</button>
             <a href="index.html" aria-current="page">Home</a>
-            <a href="about.html">About</a>
-            <a href="transparency.html">Transparency</a>
             <a href="gallery.html">Gallery</a>
             <a href="contact.html">Contact</a>
         </aside>
+
         <div class="scrim" hidden></div>
     </header>
 
@@ -57,14 +76,14 @@
             <h1>Champions League for Neighborhoods in Football</h1>
             <p>We connect youth and neighborhoods through football to build inclusion, respect, and fair play.</p>
             <div class="cta-row">
-                <a class="btn primary" href="about.html">Learn More</a>
+                <a class="btn primary" href="#about">Learn More</a>
                 <a class="btn" href="contact.html#volunteer">Volunteer</a>
-                <a class="btn" href="transparency.html">Transparency</a>
+                <a class="btn" href="#transparency">Transparency</a>
             </div>
         </div>
     </section>
 
-    <!-- Mission: big section, no cards -->
+    <!-- Mission -->
     <section class="section-xl">
         <div class="split">
             <div>
@@ -78,15 +97,15 @@
                     <li>Fair play and safety on and off the field</li>
                     <li>Clear governance and open communication</li>
                 </ul>
-                <p><a class="btn" href="about.html">Read our story</a></p>
+                <p><a class="btn" href="#about">Read our story</a></p>
             </div>
             <figure class="media">
-                <img src="assets/mission.jpg" alt="Neighborhood teams playing together" loading="lazy">
+                <img src="assets/mission.jpg" alt="Neighborhood teams playing together" loading="lazy" width="1200" height="750">
             </figure>
         </div>
     </section>
 
-    <!-- Impact: community stats from official docs -->
+    <!-- Impact -->
     <section class="impact" aria-label="Key community stats">
         <div class="impact-item">
             <div class="impact-num" aria-label="Players">32,000+</div>
@@ -106,67 +125,136 @@
         </div>
     </section>
 
-    <!-- Programs: keep cards just here -->
+    <!-- Programs -->
     <section aria-label="Programs" class="grid">
         <article class="card">
             <h3>Neighborhood League</h3>
             <p class="muted">Community-based league for teens and young adults that builds teamwork, leadership, and healthy lifestyles.</p>
-            <p><a class="btn" href="about.html#league">Learn more</a></p>
+            <p><a class="btn" href="#about">Learn more</a></p>
         </article>
         <article class="card">
             <h3>Workshops and Clinics</h3>
             <p class="muted">Skill sessions with coaches and mentors. Topics include fair play, conflict resolution, and personal safety.</p>
-            <p><a class="btn" href="about.html#workshops">Learn more</a></p>
+            <p><a class="btn" href="#about">Learn more</a></p>
         </article>
         <article class="card">
             <h3>Community Events</h3>
             <p class="muted">Open trainings, friendly matches, and meetups to bring families, volunteers, and partners together.</p>
-            <p><a class="btn" href="about.html#events">Learn more</a></p>
+            <p><a class="btn" href="#about">Learn more</a></p>
         </article>
     </section>
 
-    <!-- Partners logos -->
+    <!-- About (section on Home) -->
+    <section id="about" class="section hero">
+        <h2>About Us</h2>
+        <p>Champions League for Neighborhoods in Football is a registered non-profit association in Israel. Our mission is to bring young people together from diverse backgrounds and strengthen local communities through football.</p>
+        <div class="tagline">Sportsmanship • Inclusion • Empowerment</div>
+    </section>
+
+    <section class="section">
+        <div class="split">
+            <div>
+                <h3>Who We Are</h3>
+                <p>We are Champions League for Neighborhoods in Football, a movement of community leaders, mentors, volunteers, and football enthusiasts. We believe sport can transform lives and neighborhoods. Beyond the pitch, we build bridges between diverse groups, create safe and welcoming spaces for youth, and open pathways to growth through leagues, city events, skills workshops, and year round activities.</p>
+                <p>Our teams and volunteers work with schools, municipalities, local clubs, and community centers to make participation simple and accessible. Every program is designed to help young people feel seen, supported, and capable of leading positive change around them.</p>
+            </div>
+            <div>
+                <h3>What We Stand For</h3>
+                <p>Champions League for Neighborhoods in Football stands for fairness, respect, and inclusion. Football is our universal language, a platform to practice equality, teamwork, and dialogue. We ensure that every child and teenager, regardless of background, gender, ability, or neighborhood, can step onto the field and feel at home.</p>
+                <p>We use the game to teach life skills: discipline, perseverance, communication, conflict resolution, and civic engagement. Our vision is simple: stronger youth, stronger neighborhoods, and a culture of belonging that lasts long after the final whistle.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="grid">
+            <article class="card">
+                <h3>Registered NPO</h3>
+                <p class="muted">Israel NPO Reg. No.: <strong>580739340</strong></p>
+            </article>
+            <article class="card">
+                <h3>Neighborhoods</h3>
+                <p>We operate across Israel in multiple districts and neighborhoods — and keep expanding every season to reach new communities and partners.</p>
+            </article>
+            <article class="card">
+                <h3>Youth &amp; Mentors</h3>
+                <p>Our holistic pathway blends football training with mentorship, leadership development, and community service — turning matches into lessons in teamwork, responsibility, and purpose on and off the field.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>In the Media</h2>
+        <p class="muted">Selected coverage and mentions about CLNIF from reputable media and platforms.</p>
+
+        <div class="press-grid">
+            <a class="press-card" href="https://nws.report/sport/14977/" target="_blank" rel="noopener">
+                <span class="press-logo" aria-hidden="true" data-label="NWS"></span>
+                <span class="press-meta"><strong>NWS Report</strong><em>Sports feature</em></span>
+            </a>
+            <a class="press-card" href="https://omny.fm/shows/editcontent/20682230-02e6-4d8d-ab99-b05900530a0b" target="_blank" rel="noopener">
+                <span class="press-logo" aria-hidden="true" data-label="OMNY"></span>
+                <span class="press-meta"><strong>Omny Studio</strong><em>Radio segment / Podcast</em></span>
+            </a>
+            <a class="press-card" href="https://haifa.mynet.co.il/sports/article/H1pQUAcLO" target="_blank" rel="noopener">
+                <span class="press-logo" aria-hidden="true" data-label="MYNET"></span>
+                <span class="press-meta"><strong>mynet Haifa</strong><em>Sports coverage</em></span>
+            </a>
+            <a class="press-card" href="https://nws.report/sport/17501/" target="_blank" rel="noopener">
+                <span class="press-logo" aria-hidden="true" data-label="NWS"></span>
+                <span class="press-meta"><strong>NWS Report</strong><em>Follow-up feature</em></span>
+            </a>
+            <a class="press-card" href="https://www.k-8.co.il/he/articles/item/2707/" target="_blank" rel="noopener">
+                <span class="press-logo" aria-hidden="true" data-label="K-8"></span>
+                <span class="press-meta"><strong>K-8</strong><em>Feature article</em></span>
+            </a>
+            <a class="press-card" href="https://www.one.co.il/Article/414136.html" target="_blank" rel="noopener">
+                <span class="press-logo" aria-hidden="true" data-label="ONE"></span>
+                <span class="press-meta"><strong>ONE</strong><em>National sports portal</em></span>
+            </a>
+            <a class="press-card" href="https://sports.walla.co.il/item/3437734" target="_blank" rel="noopener">
+                <span class="press-logo" aria-hidden="true" data-label="WALLA"></span>
+                <span class="press-meta"><strong>Walla! Sports</strong><em>Social football initiative</em></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Transparency (section on Home) -->
+    <section id="transparency" class="section hero">
+        <h2>Transparency</h2>
+        <p>Transparency is one of our core values. We operate as a registered non-profit association (Amutah) and are committed to accountability. Our bylaws, annual financial balances, and confirmation of bank account ownership are always available to the public.</p>
+        <div class="tagline">Open • Accountable • Trustworthy</div>
+        <h2>Our Approach</h2>
+        <p>We believe that non-profit organizations must be transparent in their governance, finances, and operations. That is why we regularly publish key documents and maintain clear communication with our community and partners.</p>
+    </section>
+
+    <!-- Partners -->
     <section class="section-lg">
         <h2>Partners and Support</h2>
         <p class="muted">We collaborate with organizations and sponsors to support facilities, transportation, and equipment for teams.</p>
         <div class="logo-grid">
-            <img src="assets/partners/p1.png" alt="Partner 1" loading="lazy">
-            <img src="assets/partners/p2.png" alt="Partner 2" loading="lazy">
-            <img src="assets/partners/p3.png" alt="Partner 3" loading="lazy">
-            <img src="assets/partners/p4.png" alt="Partner 4" loading="lazy">
+            <img src="assets/partners/p1.png" alt="Partner 1" loading="lazy" width="300" height="60">
+            <img src="assets/partners/p2.png" alt="Partner 2" loading="lazy" width="300" height="60">
+            <img src="assets/partners/p3.png" alt="Partner 3" loading="lazy" width="300" height="60">
+            <img src="assets/partners/p4.png" alt="Partner 4" loading="lazy" width="300" height="60">
         </div>
         <p><a class="btn" href="contact.html#partners">Become a partner</a></p>
-    </section>
-
-    <!-- Transparency callout -->
-    <section class="section-xl callout">
-        <div class="split">
-            <div>
-                <h2>Transparency</h2>
-                <p class="muted">
-                    As a registered non-profit, we publish governance and yearly financials for accountability.
-                    Access certificates, bylaws, and annual reports.
-                </p>
-            </div>
-            <div class="actions">
-                <a class="btn primary" href="transparency.html">Open Transparency</a>
-                <a class="btn" href="contact.html">Contact us</a>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <span>© <span id="y"></span> CLNIF</span>
-        <span>contact: <a href="mailto:ligatasho2021@gmail.com">ligatasho2021@gmail.com</a></span>
+        <span>contact: <a href="mailto:info@clnif.org">info@clnif.org</a></span>
     </footer>
 </div>
 
 <script src="main.js"></script>
 <script>
     // year fallback
-    (function(){ var y=document.getElementById('y'); if(y && !y.textContent){ y.textContent=new Date().getFullYear(); } })();
+    (function(){
+        var y=document.getElementById('y');
+        if(y && !y.textContent){ y.textContent=new Date().getFullYear(); }
+    })();
 </script>
-
 </body>
 </html>

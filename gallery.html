@@ -8,17 +8,21 @@
     <link rel="icon" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="canonical" href="https://clnif.org/gallery.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gallery - Champions League for Neighborhoods in Football">
-    <meta name="twitter:description" content="Moments from our community football activities and neighborhood events.">
-    <meta name="twitter:image" content="https://clnif.org/assets/og-image.jpg">
+
+    <!-- SEO -->
     <meta name="description" content="Photo and video highlights from CLNIF leagues, clinics, and community events across neighborhoods.">
     <meta property="og:title" content="Gallery - Champions League for Neighborhoods in Football">
     <meta property="og:description" content="Moments from our community football activities and neighborhood events.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://clnif.org/gallery.html">
     <meta property="og:image" content="https://clnif.org/assets/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gallery - Champions League for Neighborhoods in Football">
+    <meta name="twitter:description" content="Moments from our community football activities and neighborhood events.">
+    <meta name="twitter:image" content="https://clnif.org/assets/og-image.jpg">
     <meta name="theme-color" content="#0a0a0a">
+
+    <!-- perf hints for YouTube thumbs -->
     <link rel="preconnect" href="https://www.youtube.com" crossorigin>
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
 </head>
@@ -29,59 +33,54 @@
             <img class="logo-img" src="assets/logo.svg" alt="CLNIF logo" width="180" height="45" loading="eager">
         </div>
 
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-            ☰
-        </button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">☰</button>
 
-        <nav class="nav-desktop">
+        <nav class="nav-desktop" aria-label="Primary">
             <a class="btn" href="index.html">Home</a>
-            <a class="btn" href="about.html">About</a>
-            <a class="btn" href="transparency.html">Transparency</a>
-            <a class="btn primary" href="gallery.html" aria-current="page">Gallery</a>
+            <a class="btn" href="gallery.html" aria-current="page">Gallery</a>
             <a class="btn" href="contact.html">Contact</a>
         </nav>
 
-        <aside id="mobileNav" class="nav-drawer" aria-hidden="true">
+        <aside id="mobileNav" class="nav-drawer" aria-hidden="true" aria-label="Mobile">
             <button class="drawer-close" aria-label="Close menu">✕</button>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="transparency.html">Transparency</a>
             <a href="gallery.html" aria-current="page">Gallery</a>
             <a href="contact.html">Contact</a>
         </aside>
         <div class="scrim" hidden></div>
-
     </header>
-    <!-- Restored content -->
+
+    <!-- Hero -->
     <section class="hero">
         <h1>Gallery</h1>
         <p>Moments from our community football activities and neighborhood events.</p>
     </section>
 
-    <section class="gallery-grid">
+    <!-- Photos -->
+    <section class="gallery-grid" aria-label="Photo gallery">
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo1.jpg" data-caption="Team">
-            <img src="assets/gallery/photo1.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo1.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo2.jpg" data-caption="Team">
-            <img src="assets/gallery/photo2.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo2.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo3.jpg" data-caption="Team">
-            <img src="assets/gallery/photo3.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo3.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo4.jpg" data-caption="Team">
-            <img src="assets/gallery/photo4.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo4.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo5.jpg" data-caption="Team">
-            <img src="assets/gallery/photo5.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo5.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo6.jpg" data-caption="Team">
-            <img src="assets/gallery/photo6.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo6.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo7.jpg" data-caption="Team">
-            <img src="assets/gallery/photo7.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo7.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
         <a class="gallery-item" href="#" data-lightbox-src="assets/gallery/photo8.jpg" data-caption="Team">
-            <img src="assets/gallery/photo8.jpg" alt="Team" loading="lazy">
+            <img src="assets/gallery/photo8.jpg" alt="Team" loading="lazy" width="1280" height="720">
         </a>
     </section>
 
@@ -110,12 +109,20 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <span>© <span id="y"></span> CLNIF</span>
-        <span>contact: <a href="mailto:ligatasho2021@gmail.com">ligatasho2021@gmail.com</a></span>
+        <span>contact: <a href="mailto:info@clnif.org">info@clnif.org</a></span>
     </footer>
-    <!-- End restored content -->
 </div>
+
 <script src="main.js" defer></script>
+<script>
+    // year fallback
+    (function(){
+        var y=document.getElementById('y');
+        if(y && !y.textContent){ y.textContent=new Date().getFullYear(); }
+    })();
+</script>
 </body>
 </html>
