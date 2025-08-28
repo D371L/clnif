@@ -210,3 +210,87 @@ const ScrollLock = {
         }
     });
 })();
+
+// ===== Partners: data-driven rendering =====
+const PARTNERS = [
+    {
+        name: "Partner 1",
+        role: "community supporter",
+        url: "https://partner1.example.com",
+        src: "assets/partners/p1.png",
+        width: 300,
+        height: 60
+    },
+    {
+        name: "Partner 2",
+        role: "youth programs",
+        url: "https://partner2.example.com",
+        src: "assets/partners/p2.png",
+        width: 300,
+        height: 60
+    },
+    {
+        name: "Partner 3",
+        role: "sports equipment",
+        url: "https://partner3.example.com",
+        src: "assets/partners/p3.png",
+        width: 300,
+        height: 60
+    },
+    {
+        name: "Partner 4",
+        role: "transportation support",
+        url: "https://partner4.example.com",
+        src: "assets/partners/p4.png",
+        width: 300,
+        height: 60
+    }
+    // добавляй новые объекты сюда
+];
+
+function renderPartners(){
+    const grid = document.getElementById('partnersGrid');
+    if(!grid || !Array.isArray(PARTNERS)) return;
+
+    const frag = document.createDocumentFragment();
+
+    PARTNERS.forEach(p => {
+        // ссылка-карточка
+        const a = document.createElement('a');
+        a.className = 'logo-card';
+        a.setAttribute('role', 'listitem');
+        a.href = p.url || '#';
+        if(p.url) { a.target = '_blank'; a.rel = 'noopener'; }
+        a.title = `${p.name} — ${p.role}`;
+
+        // логотип
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = p.src;
+        img.alt = `${p.name} — ${p.role}`;
+        if(p.width)  img.width  = p.width;
+        if(p.height) img.height = p.height;
+
+        // маленькая текстовая метка для скринридеров
+        const sr = document.createElement('span');
+        sr.className = 'logo-name';
+        sr.textContent = p.name;
+
+        // graceful fallback если картинка не загрузилась
+        img.addEventListener('error', () => {
+            a.style.justifyContent = 'center';
+            a.textContent = p.name;
+            a.title = `${p.name} (link)`;
+        });
+
+        a.appendChild(img);
+        a.appendChild(sr);
+        frag.appendChild(a);
+    });
+
+    grid.innerHTML = '';
+    grid.appendChild(frag);
+}
+
+document.addEventListener('DOMContentLoaded', renderPartners);
