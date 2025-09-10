@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CLNIF — Champions League for Neighborhoods in Football</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLNIF - Champions League for Neighborhoods in Football</title>
 
-    <link rel="icon" href="assets/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="canonical" href="https://clnif.org/">
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- SEO -->
     <meta name="description" content="CLNIF unites youth and neighborhoods through football. Explore our mission, programs, media, gallery and transparency.">
-    <meta property="og:title" content="Champions League for Neighborhoods in Football">
-    <meta property="og:description" content="Community • Youth • Football">
-    <meta property="og:image" content="https://clnif.org/assets/og-image.jpg">
-    <meta property="og:url" content="https://clnif.org">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#05060a" />
+    <link rel="canonical" href="https://clnif.org/" />
 
-    <!-- Schema -->
+    <!-- Icons -->
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Champions League for Neighborhoods in Football" />
+    <meta property="og:description" content="Community • Youth • Football" />
+    <meta property="og:image" content="https://clnif.org/assets/og-image.jpg" />
+    <meta property="og:url" content="https://clnif.org/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Schema.org -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -28,17 +40,24 @@
             "url": "https://clnif.org/",
             "logo": "https://clnif.org/assets/og-image.jpg",
             "email": "info@clnif.org",
-            "sameAs": ["https://t.me/youngpeopleforhaifa","https://clnif.org/"],
+            "sameAs": [
+                "https://t.me/youngpeopleforhaifa",
+                "https://www.instagram.com/leaguechampionneighborhoods/"
+            ],
             "foundingLocation": "Haifa, Israel",
             "taxID": "580739340",
-            "description": "Non-profit in Israel uniting youth across neighborhoods through football leagues, tournaments, and mentoring."
+            "description": "Non-profit in Israel uniting youth across neighborhoods through football leagues, tournaments, and mentoring.",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "General",
+                "email": "info@clnif.org"
+            }
         }
     </script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ====== HEADER (centered nav, no logo) ====== -->
 <header class="site-top">
     <div class="container nav-row">
         <nav class="links" aria-label="Primary">
@@ -63,10 +82,13 @@
     <div class="scrim" hidden></div>
 </header>
 
-<!-- ====== HERO (fullscreen video + fully centered content) ====== -->
 <section id="top" class="hero" data-spy-section>
     <div class="video-bg" data-yt-bg="LgZE--H_XTA" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
+
+    <noscript>
+        <img src="assets/hero-poster.jpg" alt="CLNIF football community" width="1920" height="1080" fetchpriority="high" style="width:100%;height:auto;display:block;">
+    </noscript>
 
     <div class="hero-center container">
         <div class="hero-box glass">
@@ -86,7 +108,6 @@
 
 <main id="main">
 
-    <!-- ABOUT -->
     <section id="about" class="section container" data-spy-section>
         <div class="glass split">
             <div>
@@ -107,7 +128,6 @@
         </div>
     </section>
 
-    <!-- KPI -->
     <section class="section container">
         <div class="kpi-grid">
             <div class="kpi"><div class="kpi-n">32,000+</div><div class="kpi-l">Players</div></div>
@@ -117,7 +137,6 @@
         </div>
     </section>
 
-    <!-- PROGRAMS -->
     <section id="programs" class="section container" data-spy-section>
         <div class="grid-3">
             <article class="card glass">
@@ -138,7 +157,6 @@
         </div>
     </section>
 
-    <!-- FACTS (Registered NPO) -->
     <section class="section container">
         <div class="grid-3">
             <article class="card glass">
@@ -157,7 +175,6 @@
         </div>
     </section>
 
-    <!-- MEDIA (6) -->
     <section id="press" class="section container" data-spy-section>
         <h2>In the Media</h2>
         <p class="muted">Selected coverage about CLNIF.</p>
@@ -171,7 +188,6 @@
         </div>
     </section>
 
-    <!-- GALLERY PREVIEW (без кнопки «open full gallery») -->
     <section id="gallery" class="section container" data-spy-section>
         <div class="head">
             <h2>Gallery</h2>
@@ -179,17 +195,16 @@
         </div>
 
         <div class="gal">
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo1.jpg" data-caption="Neighborhood teams before kickoff"><img src="assets/gallery/photo1.jpg" alt="Teams before kickoff" loading="lazy"></a>
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo2.jpg" data-caption="Youth players celebrating a goal"><img src="assets/gallery/photo2.jpg" alt="Goal celebration" loading="lazy"></a>
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo3.jpg" data-caption="Community event with families and volunteers"><img src="assets/gallery/photo3.jpg" alt="Community event" loading="lazy"></a>
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo4.jpg" data-caption="Girls team training session"><img src="assets/gallery/photo4.jpg" alt="Girls training" loading="lazy"></a>
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo5.jpg" data-caption="Friendly match at a neighborhood field"><img src="assets/gallery/photo5.jpg" alt="Friendly match" loading="lazy"></a>
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo6.jpg" data-caption="Mentor giving instructions"><img src="assets/gallery/photo6.jpg" alt="Mentor with players" loading="lazy"></a>
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo7.jpg" data-caption="Team photo with coaches and volunteers"><img src="assets/gallery/photo7.jpg" alt="Team photo" loading="lazy"></a>
-            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo8.jpg" data-caption="Trophy ceremony after final"><img src="assets/gallery/photo8.jpg" alt="Trophy ceremony" loading="lazy"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo1.jpg" data-caption="Neighborhood teams before kickoff"><img src="assets/gallery/photo1.jpg" alt="Teams before kickoff" loading="lazy" width="1200" height="750"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo2.jpg" data-caption="Youth players celebrating a goal"><img src="assets/gallery/photo2.jpg" alt="Goal celebration" loading="lazy" width="1200" height="750"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo3.jpg" data-caption="Community event with families and volunteers"><img src="assets/gallery/photo3.jpg" alt="Community event" loading="lazy" width="1200" height="750"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo4.jpg" data-caption="Girls team training session"><img src="assets/gallery/photo4.jpg" alt="Girls training" loading="lazy" width="1200" height="750"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo5.jpg" data-caption="Friendly match at a neighborhood field"><img src="assets/gallery/photo5.jpg" alt="Friendly match" loading="lazy" width="1200" height="750"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo6.jpg" data-caption="Mentor giving instructions"><img src="assets/gallery/photo6.jpg" alt="Mentor with players" loading="lazy" width="1200" height="750"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo7.jpg" data-caption="Team photo with coaches and volunteers"><img src="assets/gallery/photo7.jpg" alt="Team photo" loading="lazy" width="1200" height="750"></a>
+            <a class="tile" href="#" data-lightbox-src="assets/gallery/photo8.jpg" data-caption="Trophy ceremony after final"><img src="assets/gallery/photo8.jpg" alt="Trophy ceremony" loading="lazy" width="1200" height="750"></a>
         </div>
 
-        <!-- shared lightbox -->
         <div class="lightbox" role="dialog" aria-label="Image preview" aria-modal="true" aria-hidden="true" tabindex="-1">
             <button class="close" aria-label="Close preview">✕</button>
             <img src="" alt="">
@@ -197,7 +212,6 @@
         </div>
     </section>
 
-    <!-- TRANSPARENCY -->
     <section id="transparency" class="section container">
         <div class="card glass">
             <h2>Transparency</h2>
@@ -206,24 +220,22 @@
         </div>
     </section>
 
-    <!-- PARTNERS -->
     <section class="section container">
         <h2>Partners & Support</h2>
         <p class="muted">We collaborate with organizations and sponsors to support facilities, transportation, and equipment for teams.</p>
         <div class="logos">
-            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 1" loading="lazy"></a>
-            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 2" loading="lazy"></a>
-            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 3" loading="lazy"></a>
-            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 4" loading="lazy"></a>
+            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 1" loading="lazy" width="240" height="56"></a>
+            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 2" loading="lazy" width="240" height="56"></a>
+            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 3" loading="lazy" width="240" height="56"></a>
+            <a class="logo glass" href="https://clnif.org/" target="_blank" rel="noopener"><img src="assets/logo.svg" alt="Partner 4" loading="lazy" width="240" height="56"></a>
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section container" data-spy-section>
         <h2>Contact</h2>
         <div class="grid-4">
             <article class="card glass center">
-                <p><a class="btn primary neon wide" href="mailto:info@clnif.org?subject=CLNIF%20Contact"><span>info@clnif.org</span></a></p>
+                <p><a class="btn primary neon wide" href="mailto:info@clnif.org?subject=CLNIF%20Contact" rel="noopener"><span>info@clnif.org</span></a></p>
             </article>
             <article class="card glass center">
                 <p><a class="btn neon wide" href="https://www.instagram.com/leaguechampionneighborhoods/" target="_blank" rel="noopener"><span>Instagram</span></a></p>
@@ -234,9 +246,6 @@
             <article class="card glass center">
                 <p><a class="btn neon wide" href="https://www.youtube.com/@%D7%9C%D7%99%D7%92%D7%AA%D7%94%D7%90%D7%9C%D7%95%D7%A4%D7%95%D7%AA%D7%9C%D7%A9%D7%9B%D7%95%D7%A0%D7%95%D7%AA" target="_blank" rel="noopener"><span>YouTube</span></a></p>
             </article>
-            <article class="card glass center">
-                <p><a class="btn neon wide" href="https://t.me/clnif" target="_blank" rel="noopener"><span>Telegram</span></a></p>
-            </article>
         </div>
     </section>
 
@@ -246,14 +255,11 @@
     <div class="container foot-row">
         <span>© <span id="y"></span> CLNIF. All rights reserved.</span>
         <span itemscope itemtype="https://schema.org/Organization">
-            Powered by
-            <a href="https://pumalabs.io"
-            itemprop="url"
-            target="_blank"
-            rel="noopener noreferrer">
+      Powered by
+      <a href="https://pumalabs.io" itemprop="url" target="_blank" rel="noopener noreferrer">
         <span itemprop="name">Puma Labs</span>
-  </a>
-</span>
+      </a>
+    </span>
     </div>
 </footer>
 

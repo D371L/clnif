@@ -1,16 +1,14 @@
-/* =================== NEO-FUTURISM (fonts + neon) =================== */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@400;500;600&display=swap');
-
+/* =================== NEO FUTURISM =================== */
 :root{
     --bg:#05060a;
     --ink:#ebf1ff;
     --muted:#9fb0c9;
     --glass:rgba(255,255,255,.10);
 
-    --c1:#12e6ff; /* cyan */
-    --c2:#8a6bff; /* violet */
-    --c3:#2af5c1; /* lime */
-    --c4:#ff6bb0; /* magenta */
+    --c1:#12e6ff;
+    --c2:#8a6bff;
+    --c3:#2af5c1;
+    --c4:#ff6bb0;
 
     --radius:18px;
     --pad:clamp(14px,3.4vw,22px);
@@ -34,27 +32,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c3); outline-offset
 .skip-link:focus{left:10px; top:10px}
 
 .container{ width:min(var(--max),100%); margin-inline:auto; padding-inline:var(--pad) }
-:target{ scroll-margin-top: 86px; } /* липкая шапка */
+:target{ scroll-margin-top: 90px; }
 
-/* ===== Headings use Orbitron ===== */
 h1,h2,h3,h4,h5,h6,.display,.links a{
     font-family:'Orbitron', sans-serif;
     font-weight:700;
     letter-spacing:1.05px;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .site-top{
     position:sticky; top:0; z-index:50;
     background:linear-gradient(180deg, rgba(10,12,20,.68), rgba(10,12,20,.42));
     backdrop-filter: blur(12px) saturate(140%);
     -webkit-backdrop-filter: blur(12px) saturate(140%);
     border-bottom:1px solid var(--glass);
+    will-change: backdrop-filter;
 }
 .nav-row{ position:relative; display:flex; justify-content:center; align-items:center; padding:12px 0 }
 .links{ display:flex; gap:12px; align-items:center; overflow-x:auto }
 
-/* Futuristic nav links (Orbitron, bold, uppercase, neon hover) */
 .links a{
     position:relative;
     text-decoration:none;
@@ -118,7 +115,7 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 .scrim{ position:fixed; inset:0; background:rgba(0,0,0,.5); display:none; z-index:60 }
 .scrim.open{ display:block }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{ position:relative; min-height:92vh; display:grid; place-items:center; }
 .video-bg{ position:absolute; inset:0; overflow:hidden; z-index:0; background:#000 }
 .hero-overlay{ position:absolute; inset:0; z-index:1; pointer-events:none;
@@ -127,14 +124,17 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
             linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.28));
     box-shadow: inset 0 -140px 180px rgba(0,0,0,.75), inset 0 120px 140px rgba(0,0,0,.55);
 }
-/* iframe as cover */
+/* Video cover */
 .video-bg iframe{
     position:absolute; left:50%; top:50%;
-    width:177.78vh; height:100vh; transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+    min-width:100%; min-height:100%;
+    width:177.78vh; height:100vh;
 }
 @media (min-aspect-ratio:16/9){
     .video-bg iframe{ width:100vw; height:56.25vw; }
 }
+html, body { overflow-x:hidden; }
 
 /* center box */
 .hero-center{ position:relative; z-index:2; width:100%; display:grid; place-items:center; padding:clamp(14px,4vw,22px) 0 }
@@ -151,7 +151,7 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 .lead{ color:var(--muted); margin:0 0 25px; max-width:80ch; margin-inline:auto }
 .cta{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center }
 
-/* ===== Buttons: elegant neon (без внутренней рамки) ===== */
+/* Buttons */
 .btn{
     position:relative; overflow:hidden; isolation:isolate;
     display:inline-flex; align-items:center; justify-content:center;
@@ -165,7 +165,6 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 .btn:hover{ transform: translateY(-1px) }
 .btn.primary{ border:0; color:#00121b; background:linear-gradient(135deg, var(--c1), var(--c2) 45%, var(--c4)) }
 
-/* аккуратный glow */
 .neon{ box-shadow: 0 0 0 rgba(0,0,0,0); }
 .neon:hover,
 .neon:focus-visible{
@@ -174,8 +173,6 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
             0 0 24px rgba(138,107,255,.20),
             0 6px 22px rgba(0,0,0,.35);
 }
-
-/* «блик», скользящий поверх кнопки */
 .neon::after{
     content:""; position:absolute; inset:0; pointer-events:none;
     background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.52) 12%, transparent 24%) no-repeat;
@@ -191,8 +188,6 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     48%  { transform: translateX(0%)     skewX(-10deg); }
     100% { transform: translateX(120%)   skewX(-10deg); }
 }
-
-/* ещё немного ярче для primary на hover */
 .btn.primary.neon:hover,
 .btn.primary.neon:focus-visible{
     box-shadow:
@@ -200,10 +195,9 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
             0 0 34px rgba(138,107,255,.26),
             0 10px 28px rgba(0,0,0,.45);
 }
-
 .btn.wide{ min-width:240px }
 
-/* ===== Sections & glass ===== */
+/* Sections and cards */
 .section{ padding-block: clamp(28px, 6vw, 64px) }
 .glass{
     border:1px solid var(--glass); border-radius:18px;
@@ -244,7 +238,7 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 .press-item em{ font-style:normal; color:var(--muted); font-size:13px }
 .dot{ width:14px; height:14px; border-radius:50%; background: radial-gradient(circle at 30% 30%, var(--c3), var(--c2)); box-shadow:0 0 20px rgba(18,230,255,.4) }
 
-/* ===== Gallery preview ===== */
+/* Gallery */
 .head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px }
 .gal{ --size:16px; display:grid; gap:var(--size); grid-template-columns:1fr }
 @media(min-width:560px){ .gal{ grid-template-columns:repeat(2,1fr) } }
@@ -253,7 +247,7 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 .tile:hover{ box-shadow:0 14px 50px rgba(0,0,0,.45) }
 .tile img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
 
-/* ===== Neon perimeter (ровный, без внутреннего «кольца») ===== */
+/* Neon border sweep */
 @keyframes border-flow { 0%{background-position:0% 0} 100%{background-position:200% 0} }
 
 .card.glass, .press-item.glass, .logo, .tile{ position:relative; overflow:hidden }
@@ -289,7 +283,6 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     opacity:.65; animation: border-flow 8s linear infinite;
 }
 
-/* лёгкое свечение тени, единое для всех */
 .card.glass:hover,
 .press-item.glass:hover,
 .logo:hover,
@@ -310,11 +303,22 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 .center{ text-align:center }
 .btn.wide{ width:min(260px,100%) }
 
+/* Lightbox */
+.lightbox {
+    position:fixed; inset:0; display:none;
+    background:rgba(0,0,0,.85); z-index:1000;
+    align-items:center; justify-content:center; padding:16px;
+}
+.lightbox.open { display:flex; }
+.lightbox img { max-width:min(96vw,1200px); max-height:80vh; border-radius:12px; }
+.lightbox .caption { margin-top:10px; color:var(--muted); text-align:center; max-width:90ch; }
+.lightbox .close { position:absolute; top:14px; right:14px; }
+
 /* Footer */
 .foot{ border-top:1px solid var(--glass); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0)) }
 .foot-row{ display:flex; justify-content:space-between; gap:10px; padding:16px var(--pad); color:var(--muted) }
 
-/* Motion reduce */
+/* Reduce motion */
 @media (prefers-reduced-motion: reduce){
     .btn, .tile, .press-item.glass::before, .card.glass::before, .logo::before{ transition:none; animation:none }
 }
