@@ -76,7 +76,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c3); outline-offset
 .skip-link:focus{left:10px; top:10px}
 
 .container{ width:min(var(--max),100%); margin-inline:auto; padding-inline:var(--pad) }
-:target{ scroll-margin-top: 90px; }
+:target{ scroll-margin-top: 70px; }
 
 h1,h2,h3,h4,h5,h6,.display,.links a{
     font-family:'Orbitron', sans-serif;
@@ -93,19 +93,20 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     border-bottom:1px solid var(--glass);
     will-change: backdrop-filter;
 }
-.nav-row{ position:relative; display:flex; justify-content:center; align-items:center; padding:12px 0 }
-.links{ display:flex; gap:12px; align-items:center; overflow-x:auto }
+.nav-row{ position:relative; display:flex; justify-content:center; align-items:center; padding:8px 0 }
+.links{ display:flex; gap:8px; align-items:center; overflow-x:auto }
 
 .links a{
     position:relative;
     text-decoration:none;
-    padding:10px 18px;
+    padding:8px 14px;
     border-radius:999px;
 
     font-family:var(--nav-font);
-    font-weight:800;
+    font-weight:700;
     text-transform:uppercase;
-    letter-spacing:1.15px;
+    letter-spacing:0.8px;
+    font-size:13px;
 
     color:var(--ink);
     border:1px solid var(--glass);
@@ -130,7 +131,8 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 /* burger */
 .burger{
     position:absolute; right:var(--pad); top:50%; transform:translateY(-50%);
-    display:none; width:40px; height:36px; border-radius:10px; background:transparent; color:var(--ink); border:1px solid var(--glass)
+    display:none; width:36px; height:32px; border-radius:8px; background:transparent; color:var(--ink); border:1px solid var(--glass);
+    font-size:16px;
 }
 @media (max-width:760px){
     .burger{ display:inline-flex; align-items:center; justify-content:center }
@@ -139,17 +141,18 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 
 /* Drawer */
 .drawer{
-    position:fixed; inset:0 auto 0 0; width:min(86%,360px); height:100vh;
+    position:fixed; inset:0 auto 0 0; width:min(86%,320px); height:100vh;
     background:rgba(8,10,16,.92);
     backdrop-filter: blur(12px);
     border-right:1px solid var(--glass);
-    transform:translateX(-100%); transition:transform .25s ease; padding:18px; z-index:70
+    transform:translateX(-100%); transition:transform .25s ease; padding:16px; z-index:70
 }
 .drawer.open{ transform:none }
 .drawer a{
-    display:block; padding:12px 14px; border-radius:12px; text-decoration:none;
-    border:1px solid var(--glass); margin-bottom:10px;
-    font-family:var(--nav-font); font-weight:800; text-transform:uppercase; letter-spacing:1.05px;
+    display:block; padding:10px 12px; border-radius:10px; text-decoration:none;
+    border:1px solid var(--glass); margin-bottom:8px;
+    font-family:var(--nav-font); font-weight:700; text-transform:uppercase; letter-spacing:0.8px;
+    font-size:13px;
 }
 .drawer a:hover{ color:var(--c1); box-shadow:0 0 14px rgba(18,230,255,.26) }
 .drawer a.active, .drawer a[aria-current="page"]{
