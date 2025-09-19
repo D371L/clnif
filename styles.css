@@ -155,8 +155,21 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 /* burger */
 .burger{
     position:absolute; right:var(--pad); top:50%; transform:translateY(-50%);
-    display:none; width:36px; height:32px; border-radius:8px; background:transparent; color:var(--ink); border:1px solid var(--glass);
-    font-size:16px;
+    display:none; width:44px; height:40px; border-radius:10px; background:transparent; color:var(--ink); border:1px solid var(--glass);
+    font-size:18px;
+    transition: var(--transition-fast);
+}
+.burger:hover {
+    background: rgba(255,255,255,.05);
+    transform: translateY(-50%) scale(1.05);
+}
+.burger:active {
+    transform: translateY(-50%) scale(0.95);
+}
+.burger[aria-expanded="true"] {
+    background: rgba(18, 230, 255, 0.1);
+    border-color: var(--c1);
+    color: var(--c1);
 }
 @media (max-width:760px){
     .burger{ display:inline-flex; align-items:center; justify-content:center }
