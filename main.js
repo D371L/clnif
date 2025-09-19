@@ -197,32 +197,36 @@ document.addEventListener('click', e=>{
     }
 })();
 
-/* Enhanced lazy loading */
+/* Enhanced lazy loading - only for gallery images */
 (function(){
-    const images = $$('img[loading="lazy"]');
-    if(!images.length) return;
+    const galleryImages = $$('#gallery img[loading="lazy"]');
+    if(!galleryImages.length) return;
     
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
                 const img = entry.target;
-                Loading.show(img.parentElement);
+                const tile = img.closest('.tile');
                 
-                img.addEventListener('load', () => {
-                    Loading.hide(img.parentElement);
-                });
-                
-                img.addEventListener('error', () => {
-                    Loading.hide(img.parentElement);
-                    Toast.show('Ошибка загрузки изображения', 'error');
-                });
+                if(tile) {
+                    Loading.show(tile);
+                    
+                    img.addEventListener('load', () => {
+                        Loading.hide(tile);
+                    });
+                    
+                    img.addEventListener('error', () => {
+                        Loading.hide(tile);
+                        Toast.show('Ошибка загрузки изображения', 'error');
+                    });
+                }
                 
                 imageObserver.unobserve(img);
             }
         });
     }, { rootMargin: '50px' });
     
-    images.forEach(img => imageObserver.observe(img));
+    galleryImages.forEach(img => imageObserver.observe(img));
 })();
 
 /* scroll spy */
