@@ -263,18 +263,50 @@ document.addEventListener('click', e=>{
     galleryImages.forEach(img => imageObserver.observe(img));
 })();
 
-/* scroll spy */
+/* Enhanced scroll spy with animated indicator */
 (function(){
     const navLinks = Array.from(document.querySelectorAll('a[data-spy-link]'));
     const sections = Array.from(document.querySelectorAll('[data-spy-section], #top'));
-    if(!navLinks.length || !sections.length) return;
+    const linksContainer = document.querySelector('.links');
+    if(!navLinks.length || !sections.length || !linksContainer) return;
 
     const map = new Map(navLinks.map(a => [a.getAttribute('href').replace('#',''), a]));
+    
+    function updateIndicator(activeLink) {
+        const indicator = linksContainer.querySelector('.nav-indicator');
+        if (!indicator) return;
+        
+        const linkRect = activeLink.getBoundingClientRect();
+        const containerRect = linksContainer.getBoundingClientRect();
+        
+        indicator.style.left = `${linkRect.left - containerRect.left}px`;
+        indicator.style.width = `${linkRect.width}px`;
+    }
+    
     function setActive(id){
         navLinks.forEach(a => { a.removeAttribute('aria-current'); a.classList.remove('active'); });
         const link = map.get(id);
-        if(link){ link.setAttribute('aria-current','page'); link.classList.add('active'); }
+        if(link){ 
+            link.setAttribute('aria-current','page'); 
+            link.classList.add('active');
+            updateIndicator(link);
+        }
     }
+
+    // Create animated indicator
+    const indicator = document.createElement('div');
+    indicator.className = 'nav-indicator';
+    indicator.style.cssText = `
+        position: absolute;
+        top: 4px;
+        height: calc(100% - 8px);
+        background: linear-gradient(135deg, var(--c1), var(--c2) 45%, var(--c4));
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+        pointer-events: none;
+    `;
+    linksContainer.appendChild(indicator);
 
     const io = new IntersectionObserver((entries)=>{
         entries.forEach(e=>{
@@ -286,4 +318,10 @@ document.addEventListener('click', e=>{
     }, { root:null, threshold:0.6 });
 
     sections.forEach(s => io.observe(s));
+    
+    // Initialize indicator position
+    const activeLink = navLinks.find(a => a.hasAttribute('aria-current'));
+    if (activeLink) {
+        updateIndicator(activeLink);
+    }
 })();
