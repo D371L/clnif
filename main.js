@@ -197,7 +197,7 @@ document.addEventListener('click', e=>{
     }
 })();
 
-/* Enhanced lazy loading - only for gallery images */
+/* Simple lazy loading for gallery images - no loading animation */
 (function(){
     const galleryImages = $$('#gallery img[loading="lazy"]');
     if(!galleryImages.length) return;
@@ -206,21 +206,6 @@ document.addEventListener('click', e=>{
         entries.forEach(entry => {
             if(entry.isIntersecting) {
                 const img = entry.target;
-                const tile = img.closest('.tile');
-                
-                if(tile) {
-                    Loading.show(tile);
-                    
-                    img.addEventListener('load', () => {
-                        Loading.hide(tile);
-                    });
-                    
-                    img.addEventListener('error', () => {
-                        Loading.hide(tile);
-                        Toast.show('Ошибка загрузки изображения', 'error');
-                    });
-                }
-                
                 imageObserver.unobserve(img);
             }
         });

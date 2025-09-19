@@ -405,6 +405,7 @@ html, body { overflow-x:hidden; }
     } 
 }
 .logo{ 
+    position: relative;
     display:flex; 
     align-items:center; 
     justify-content:center; 
@@ -413,25 +414,46 @@ html, body { overflow-x:hidden; }
     background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); 
     height:96px;
     transition: var(--transition-normal);
+    overflow: hidden;
 }
 .logo:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
-.logo-placeholder {
+.logo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    transition: var(--transition-normal);
+}
+
+.logo:hover .logo-image {
+    opacity: 0.5;
+}
+
+.logo-overlay {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
 }
 
 .logo-text {
-    color: var(--muted);
+    color: var(--ink);
     font-size: 14px;
     font-weight: 600;
     text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Enhanced Contact */
