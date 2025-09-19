@@ -76,7 +76,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c3); outline-offset
 .skip-link:focus{left:10px; top:10px}
 
 .container{ width:min(var(--max),100%); margin-inline:auto; padding-inline:var(--pad) }
-:target{ scroll-margin-top: 70px; }
+:target{ scroll-margin-top: 80px; }
 
 h1,h2,h3,h4,h5,h6,.display,.links a{
     font-family:'Orbitron', sans-serif;
@@ -93,39 +93,37 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     border-bottom:1px solid var(--glass);
     will-change: backdrop-filter;
 }
-.nav-row{ position:relative; display:flex; justify-content:center; align-items:center; padding:8px 0 }
-.links{ display:flex; gap:8px; align-items:center; overflow-x:auto }
+.nav-row{ position:relative; display:flex; justify-content:center; align-items:center; padding:10px 0 }
+.links{ display:flex; gap:10px; align-items:center; overflow-x:auto }
 
 .links a{
     position:relative;
     text-decoration:none;
-    padding:8px 14px;
+    padding:9px 16px;
     border-radius:999px;
 
     font-family:var(--nav-font);
     font-weight:700;
     text-transform:uppercase;
-    letter-spacing:0.8px;
-    font-size:13px;
+    letter-spacing:0.9px;
+    font-size:14px;
 
     color:var(--ink);
     border:1px solid var(--glass);
     background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    transition: color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-normal), background var(--transition-fast);
+    transition: color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
 }
 .links a:hover{
     color:var(--c1);
-    transform: translateY(-2px);
-    box-shadow:
-            0 0 14px rgba(18,230,255,.28),
-            0 0 26px rgba(138,107,255,.22);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(18,230,255,.15);
 }
 .links a[aria-current="page"],
 .links a.active{
     color:#00121b;
     background:linear-gradient(135deg, var(--c1), var(--c2) 45%, var(--c4));
     border-color:transparent;
-    box-shadow:0 0 22px rgba(18,230,255,.35);
+    box-shadow: 0 2px 8px rgba(18,230,255,.2);
 }
 
 /* burger */
@@ -141,20 +139,20 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 
 /* Drawer */
 .drawer{
-    position:fixed; inset:0 auto 0 0; width:min(86%,320px); height:100vh;
+    position:fixed; inset:0 auto 0 0; width:min(86%,340px); height:100vh;
     background:rgba(8,10,16,.92);
     backdrop-filter: blur(12px);
     border-right:1px solid var(--glass);
-    transform:translateX(-100%); transition:transform .25s ease; padding:16px; z-index:70
+    transform:translateX(-100%); transition:transform .25s ease; padding:18px; z-index:70
 }
 .drawer.open{ transform:none }
 .drawer a{
-    display:block; padding:10px 12px; border-radius:10px; text-decoration:none;
-    border:1px solid var(--glass); margin-bottom:8px;
-    font-family:var(--nav-font); font-weight:700; text-transform:uppercase; letter-spacing:0.8px;
-    font-size:13px;
+    display:block; padding:12px 14px; border-radius:12px; text-decoration:none;
+    border:1px solid var(--glass); margin-bottom:10px;
+    font-family:var(--nav-font); font-weight:700; text-transform:uppercase; letter-spacing:0.9px;
+    font-size:14px;
 }
-.drawer a:hover{ color:var(--c1); box-shadow:0 0 14px rgba(18,230,255,.26) }
+.drawer a:hover{ color:var(--c1); box-shadow: 0 2px 8px rgba(18,230,255,.15) }
 .drawer a.active, .drawer a[aria-current="page"]{
     background:linear-gradient(135deg, var(--c1), var(--c2) 45%, var(--c4)); color:#00121b; border-color:transparent
 }
