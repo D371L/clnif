@@ -1,5 +1,43 @@
 /* helpers */
 const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => r.querySelectorAll(s);
+
+/* Progress bar */
+const progressBar = $('#progressBar');
+if (progressBar) {
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+/* Toast notifications */
+const Toast = {
+    show(message, type = 'info', duration = 3000) {
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => toast.classList.add('show'), 100);
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
+    }
+};
+
+/* Loading states */
+const Loading = {
+    show(element) {
+        element.classList.add('loading');
+    },
+    hide(element) {
+        element.classList.remove('loading');
+    }
+};
 
 /* drawer mobile */
 (function(){
@@ -38,13 +76,39 @@ const $ = (s, r=document) => r.querySelector(s);
     addEventListener('keydown', e=>{ if(e.key==='Escape' && open) hide(); });
     drawer.addEventListener('click', e=>{ if(e.target.closest('a')) hide(); });
 
-    // swipe to close
-    let sx = 0;
-    drawer.addEventListener('touchstart', e=>{ sx = e.touches[0].clientX; }, {passive:true});
+    // Enhanced swipe to close
+    let sx = 0, sy = 0, startTime = 0;
+    drawer.addEventListener('touchstart', e=>{ 
+        sx = e.touches[0].clientX; 
+        sy = e.touches[0].clientY;
+        startTime = Date.now();
+    }, {passive:true});
+    
     drawer.addEventListener('touchend', e=>{
         const dx = e.changedTouches[0].clientX - sx;
-        if(dx < -60) hide();
-    });
+        const dy = e.changedTouches[0].clientY - sy;
+        const duration = Date.now() - startTime;
+        const velocity = Math.abs(dx) / duration;
+        
+        // Close on swipe left with sufficient velocity or distance
+        if(dx < -60 && Math.abs(dy) < 100 && velocity > 0.1) {
+            hide();
+        }
+    }, {passive:true});
+    
+    // Improved touch feedback
+    drawer.addEventListener('touchstart', e=>{
+        const target = e.target.closest('a, button');
+        if(target) target.style.transform = 'scale(0.98)';
+    }, {passive:true});
+    
+    drawer.addEventListener('touchend', e=>{
+        const target = e.target.closest('a, button');
+        if(target) {
+            target.style.transform = '';
+            setTimeout(() => target.style.transform = '', 150);
+        }
+    }, {passive:true});
 })();
 
 /* smooth anchors without history spam */
@@ -131,6 +195,34 @@ document.addEventListener('click', e=>{
     if(matchMedia('(prefers-reduced-motion: reduce)').matches){
         iframe.style.display = 'none';
     }
+})();
+
+/* Enhanced lazy loading */
+(function(){
+    const images = $$('img[loading="lazy"]');
+    if(!images.length) return;
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const img = entry.target;
+                Loading.show(img.parentElement);
+                
+                img.addEventListener('load', () => {
+                    Loading.hide(img.parentElement);
+                });
+                
+                img.addEventListener('error', () => {
+                    Loading.hide(img.parentElement);
+                    Toast.show('Ошибка загрузки изображения', 'error');
+                });
+                
+                imageObserver.unobserve(img);
+            }
+        });
+    }, { rootMargin: '50px' });
+    
+    images.forEach(img => imageObserver.observe(img));
 })();
 
 /* scroll spy */
