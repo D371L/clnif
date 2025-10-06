@@ -894,7 +894,7 @@ html, body { overflow-x:hidden; }
     .skeleton, .loading::after, .toast, .contact-icon, .kpi { transition:none; animation:none }
 }
 
-/* Mobile optimizations */
+/* Mobile optimizations - Updated */
 @media (max-width: 768px) {
     .hero {
         min-height: 100vh;
