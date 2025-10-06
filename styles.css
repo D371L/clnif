@@ -883,3 +883,147 @@ html, body { overflow-x:hidden; }
     .btn, .tile, .press-item.glass::before, .card.glass::before, .logo::before, 
     .skeleton, .loading::after, .toast, .contact-icon, .kpi { transition:none; animation:none }
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+        padding: 20px 0;
+    }
+    
+    .hero-box {
+        padding: 30px 20px;
+        margin: 0 15px;
+        border-radius: 12px;
+    }
+    
+    .display {
+        font-size: clamp(24px, 8vw, 36px);
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .lead {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    
+    .cta {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        height: 48px;
+        font-size: 16px;
+    }
+    
+    .video-foreground video {
+        object-position: center;
+    }
+    
+    /* Navigation improvements */
+    .nav-list {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .nav-list a {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    /* Mobile drawer improvements */
+    .drawer {
+        width: 100%;
+        padding: 60px 20px 20px;
+    }
+    
+    .drawer a {
+        padding: 16px 20px;
+        font-size: 18px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .drawer .close {
+        top: 15px;
+        right: 15px;
+        font-size: 24px;
+    }
+    
+    /* Section spacing */
+    .section {
+        padding-block: 40px;
+    }
+    
+    .container {
+        padding-inline: 20px;
+    }
+    
+    /* Cards and grids */
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    /* Gallery */
+    .gal {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    /* Contact section */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .hero-box {
+        padding: 20px 15px;
+        margin: 0 10px;
+    }
+    
+    .display {
+        font-size: clamp(20px, 7vw, 28px);
+    }
+    
+    .lead {
+        font-size: 14px;
+    }
+    
+    .btn {
+        height: 44px;
+        font-size: 15px;
+    }
+    
+    .container {
+        padding-inline: 15px;
+    }
+    
+    .section {
+        padding-block: 30px;
+    }
+    
+    .kpi-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .gal {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
