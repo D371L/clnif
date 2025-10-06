@@ -223,31 +223,7 @@ document.addEventListener('click', e=>{
     });
 })();
 
-/* YouTube background nocookie and cover */
-(function(){
-    const el = document.querySelector('.video-bg'); 
-    if(!el) return;
-    const id = el.getAttribute('data-yt-bg'); 
-    if(!id) return;
-    
-    const src =
-        `https://www.youtube-nocookie.com/embed/${id}` +
-        `?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&playsinline=1&modestbranding=1&loop=1&playlist=${id}`;
-
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('title','CLNIF background video');
-    iframe.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
-    iframe.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
-    iframe.setAttribute('loading','lazy');
-    iframe.setAttribute('aria-hidden','true');
-    iframe.src = src;
-    iframe.frameBorder = '0';
-    el.appendChild(iframe);
-
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches){
-        iframe.style.display = 'none';
-    }
-})();
+/* Animated background instead of YouTube video */
 
 /* Simple lazy loading for gallery images - no loading animation */
 (function(){

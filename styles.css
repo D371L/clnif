@@ -244,23 +244,45 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 
 /* HERO */
 .hero{ position:relative; min-height:92vh; display:grid; place-items:center; }
-.video-bg{ position:absolute; inset:0; overflow:hidden; z-index:0; background:#000 }
-.hero-overlay{ position:absolute; inset:0; z-index:1; pointer-events:none;
+.video-bg{ 
+    position:absolute; 
+    inset:0; 
+    overflow:hidden; 
+    z-index:0; 
+    background: linear-gradient(135deg, #0f1b0f 0%, #1a2e1a 50%, #0f1b0f 100%);
+}
+
+.animated-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0,208,132,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,140,0,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(0,184,148,0.15) 0%, transparent 50%);
+    animation: field-pulse 6s ease-in-out infinite;
+}
+
+@keyframes field-pulse {
+    0%, 100% { 
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+.hero-overlay{ 
+    position:absolute; 
+    inset:0; 
+    z-index:1; 
+    pointer-events:none;
     background:
             radial-gradient(100% 70% at 50% 70%, rgba(0,0,0,.62), transparent 60%),
             linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.28));
     box-shadow: inset 0 -140px 180px rgba(0,0,0,.75), inset 0 120px 140px rgba(0,0,0,.55);
 }
-/* Video cover */
-.video-bg iframe{
-    position:absolute; left:50%; top:50%;
-    transform:translate(-50%,-50%);
-    min-width:100%; min-height:100%;
-    width:177.78vh; height:100vh;
-}
-@media (min-aspect-ratio:16/9){
-    .video-bg iframe{ width:100vw; height:56.25vw; }
-}
+/* Video cover - removed for animated background */
 html, body { overflow-x:hidden; }
 
 /* center box */
