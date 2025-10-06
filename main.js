@@ -223,7 +223,7 @@ document.addEventListener('click', e=>{
     });
 })();
 
-/* Animated background instead of YouTube video */
+/* YouTube video handled directly in HTML */
 
 /* Simple lazy loading for gallery images - no loading animation */
 (function(){

@@ -13,7 +13,6 @@
     
     <!-- Security -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -98,8 +97,15 @@
 </header>
 
 <section id="top" class="hero" data-spy-section>
-    <div class="video-bg">
-        <div class="animated-bg"></div>
+    <div class="video-background">
+        <div class="video-foreground">
+            <iframe 
+                src="https://www.youtube.com/embed/LgZE--H_XTA?autoplay=1&mute=1&loop=1&playlist=LgZE--H_XTA&controls=0&showinfo=0&modestbranding=1&start=22&rel=0&iv_load_policy=3&fs=0&disablekb=1"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
