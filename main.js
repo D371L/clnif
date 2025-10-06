@@ -225,8 +225,18 @@ document.addEventListener('click', e=>{
 
 /* YouTube background nocookie and cover */
 (function(){
-    const el = document.querySelector('.video-bg'); if(!el) return;
-    const id = el.getAttribute('data-yt-bg'); if(!id) return;
+    const el = document.querySelector('.video-bg'); 
+    if(!el) {
+        console.log('Video background element not found');
+        return;
+    }
+    const id = el.getAttribute('data-yt-bg'); 
+    if(!id) {
+        console.log('YouTube video ID not found');
+        return;
+    }
+    console.log('Loading YouTube video:', id);
+    
     const src =
         `https://www.youtube-nocookie.com/embed/${id}` +
         `?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&playsinline=1&modestbranding=1&loop=1&playlist=${id}`;
@@ -240,8 +250,10 @@ document.addEventListener('click', e=>{
     iframe.src = src;
     iframe.frameBorder = '0';
     el.appendChild(iframe);
+    console.log('YouTube iframe added');
 
     if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+        console.log('Reduced motion detected, hiding video');
         iframe.style.display = 'none';
     }
 })();
