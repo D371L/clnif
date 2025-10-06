@@ -1,14 +1,14 @@
-/* =================== NEO FUTURISM =================== */
+/* =================== SPORTS MODERN DESIGN =================== */
 :root{
-    --bg:#05060a;
-    --ink:#ebf1ff;
-    --muted:#9fb0c9;
-    --glass:rgba(255,255,255,.10);
+    --bg:#0a1a0f;
+    --ink:#f0f8f0;
+    --muted:#a8c4a8;
+    --glass:rgba(255,255,255,.08);
 
-    --c1:#12e6ff;
-    --c2:#8a6bff;
-    --c3:#2af5c1;
-    --c4:#ff6bb0;
+    --c1:#4ade80;
+    --c2:#f59e0b;
+    --c3:#22c55e;
+    --c4:#ef4444;
 
     --radius:18px;
     --pad:clamp(14px,3.4vw,22px);
@@ -26,22 +26,22 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
     
-    /* Enhanced color system */
-    --c1-light: rgba(18, 230, 255, 0.1);
-    --c1-medium: rgba(18, 230, 255, 0.3);
-    --c1-dark: rgba(18, 230, 255, 0.7);
+    /* Enhanced color system - Sports theme */
+    --c1-light: rgba(74, 222, 128, 0.1);
+    --c1-medium: rgba(74, 222, 128, 0.3);
+    --c1-dark: rgba(74, 222, 128, 0.7);
     
-    --c2-light: rgba(138, 107, 255, 0.1);
-    --c2-medium: rgba(138, 107, 255, 0.3);
-    --c2-dark: rgba(138, 107, 255, 0.7);
+    --c2-light: rgba(245, 158, 11, 0.1);
+    --c2-medium: rgba(245, 158, 11, 0.3);
+    --c2-dark: rgba(245, 158, 11, 0.7);
     
-    --c3-light: rgba(42, 245, 193, 0.1);
-    --c3-medium: rgba(42, 245, 193, 0.3);
-    --c3-dark: rgba(42, 245, 193, 0.7);
+    --c3-light: rgba(34, 197, 94, 0.1);
+    --c3-medium: rgba(34, 197, 94, 0.3);
+    --c3-dark: rgba(34, 197, 94, 0.7);
     
-    --c4-light: rgba(255, 107, 176, 0.1);
-    --c4-medium: rgba(255, 107, 176, 0.3);
-    --c4-dark: rgba(255, 107, 176, 0.7);
+    --c4-light: rgba(239, 68, 68, 0.1);
+    --c4-medium: rgba(239, 68, 68, 0.3);
+    --c4-dark: rgba(239, 68, 68, 0.7);
     
     /* Enhanced shadows */
     --shadow-sm: 0 2px 8px rgba(0,0,0,.2);
@@ -274,7 +274,7 @@ html, body { overflow-x:hidden; }
 }
 .display{ margin:0 0 10px; font-size: clamp(34px, 6vw, 68px); line-height:1.1; letter-spacing:.2px }
 .nowrap{ white-space:nowrap }
-.accent{ background: linear-gradient(135deg, var(--c1), var(--c2) 40%, var(--c4)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 22px rgba(18,230,255,.28) }
+.accent{ background: linear-gradient(135deg, var(--c1), var(--c2) 40%, var(--c3)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 22px rgba(74,222,128,.28) }
 .lead{ color:var(--muted); margin:0 0 25px; max-width:80ch; margin-inline:auto }
 .cta{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center }
 
@@ -290,14 +290,14 @@ html, body { overflow-x:hidden; }
 }
 .btn span{ position:relative; z-index:2 }
 .btn:hover{ transform: translateY(-1px) }
-.btn.primary{ border:0; color:#00121b; background:linear-gradient(135deg, var(--c1), var(--c2) 45%, var(--c4)) }
+.btn.primary{ border:0; color:#00121b; background:linear-gradient(135deg, var(--c1), var(--c2) 45%, var(--c3)) }
 
 .neon{ box-shadow: 0 0 0 rgba(0,0,0,0); }
 .neon:hover,
 .neon:focus-visible{
     box-shadow:
-            0 0 14px rgba(18,230,255,.26),
-            0 0 24px rgba(138,107,255,.20),
+            0 0 14px rgba(74,222,128,.26),
+            0 0 24px rgba(245,158,11,.20),
             0 6px 22px rgba(0,0,0,.35);
 }
 .neon::after{
@@ -318,8 +318,8 @@ html, body { overflow-x:hidden; }
 .btn.primary.neon:hover,
 .btn.primary.neon:focus-visible{
     box-shadow:
-            0 0 20px rgba(18,230,255,.32),
-            0 0 34px rgba(138,107,255,.26),
+            0 0 20px rgba(74,222,128,.32),
+            0 0 34px rgba(245,158,11,.26),
             0 10px 28px rgba(0,0,0,.45);
 }
 .btn.wide{ min-width:240px }
@@ -374,7 +374,7 @@ html, body { overflow-x:hidden; }
 .kpi{ text-align:center; padding:18px; border-radius:16px; border:1px solid var(--glass);
     background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); box-shadow:var(--shadow) }
 .kpi-n{ font-size:clamp(26px,5vw,42px); font-weight:800; letter-spacing:.2px;
-    background:linear-gradient(135deg, var(--c1), var(--c2) 40%, var(--c4));
+    background:linear-gradient(135deg, var(--c1), var(--c2) 40%, var(--c3));
     -webkit-background-clip:text; background-clip:text; color:transparent }
 .kpi-l{ color:var(--muted); font-size:14px; margin-top:4px }
 @media (min-width:760px){ .kpi-grid{ grid-template-columns:repeat(4,1fr) } }
@@ -446,12 +446,12 @@ html, body { overflow-x:hidden; }
     -webkit-mask-composite: xor; mask-composite: exclude;
 
     background: linear-gradient(90deg,
-    rgba(18,230,255,.0) 0%,
-    rgba(18,230,255,.55) 10%,
-    rgba(138,107,255,.45) 40%,
-    rgba(255,107,176,.45) 60%,
-    rgba(18,230,255,.55) 90%,
-    rgba(18,230,255,.0) 100%);
+    rgba(74,222,128,.0) 0%,
+    rgba(74,222,128,.55) 10%,
+    rgba(245,158,11,.45) 40%,
+    rgba(34,197,94,.45) 60%,
+    rgba(74,222,128,.55) 90%,
+    rgba(74,222,128,.0) 100%);
     background-size:200% 100%;
     opacity:0; transition:opacity .28s ease;
 }
@@ -471,8 +471,8 @@ html, body { overflow-x:hidden; }
 .logo:hover,
 .tile:hover{
     box-shadow:
-            0 0 18px rgba(18,230,255,.18),
-            0 0 28px rgba(138,107,255,.16),
+            0 0 18px rgba(74,222,128,.18),
+            0 0 28px rgba(245,158,11,.16),
             0 10px 26px rgba(0,0,0,.35);
 }
 
@@ -871,8 +871,37 @@ html, body { overflow-x:hidden; }
     }
 }
 
+/* Sports Animations */
+@keyframes ball-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+@keyframes trophy-glow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.5)); }
+    50% { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.8)); }
+}
+
+@keyframes field-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(74, 222, 128, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(74, 222, 128, 0.6); }
+}
+
+/* Apply sports animations */
+.contact-icon {
+    animation: ball-bounce 3s ease-in-out infinite;
+}
+
+.contact-item:nth-child(2) .contact-icon {
+    animation: trophy-glow 2s ease-in-out infinite;
+}
+
+.kpi {
+    animation: field-glow 4s ease-in-out infinite;
+}
+
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce){
     .btn, .tile, .press-item.glass::before, .card.glass::before, .logo::before, 
-    .skeleton, .loading::after, .toast { transition:none; animation:none }
+    .skeleton, .loading::after, .toast, .contact-icon, .kpi { transition:none; animation:none }
 }
