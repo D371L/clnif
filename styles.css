@@ -539,6 +539,53 @@ html, body { overflow-x:hidden; }
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* Programs Section within About */
+.programs-section {
+    margin-top: var(--space-xl);
+}
+
+.programs-section h3 {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--c1);
+    font-size: 1.5rem;
+}
+
+.programs-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+}
+
+/* Enhanced Support Section */
+.support-details {
+    margin-top: var(--space-md);
+}
+
+.support-details p {
+    margin: var(--space-sm) 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.support-details strong {
+    color: var(--c1);
+    font-weight: 600;
+}
+
+.support-note {
+    margin-top: var(--space-xl);
+}
+
+.support-note .card {
+    background: linear-gradient(135deg, rgba(18, 230, 255, 0.05), rgba(138, 107, 255, 0.05));
+    border: 1px solid rgba(18, 230, 255, 0.2);
+}
+
+.support-note h3 {
+    color: var(--c1);
+    margin-bottom: var(--space-md);
+}
+
 /* Enhanced Contact */
 .contact-grid {
     display: grid;
