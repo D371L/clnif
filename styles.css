@@ -100,6 +100,82 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     align-items:center; 
     padding:12px 0;
     overflow: hidden;
+    padding-left: 180px;
+}
+
+@media (max-width: 900px) {
+    .nav-row {
+        padding-left: 160px;
+    }
+}
+
+/* Language Selector */
+.lang-selector-wrapper {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: row; /* Always left-to-right order */
+    gap: 3px;
+    align-items: center;
+    direction: ltr; /* Force LTR direction for language buttons */
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--glass);
+    border-radius: 6px;
+    color: var(--muted);
+    font-family: var(--nav-font);
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-width: 36px;
+    height: 28px;
+}
+
+.lang-btn:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(0,208,132,.3);
+    color: var(--ink);
+    transform: translateY(-1px);
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, var(--c1), var(--c2) 45%, var(--c3));
+    border-color: rgba(0,208,132,.5);
+    color: #00121b;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,208,132,.2);
+}
+
+@media (max-width: 760px) {
+    .nav-row {
+        padding-left: 140px;
+    }
+    
+    .lang-selector-wrapper {
+        left: 6px;
+        gap: 2px;
+        flex-direction: row; /* Keep order */
+        direction: ltr; /* Force LTR */
+    }
+    
+    .lang-btn {
+        padding: 5px 8px;
+        font-size: 9px;
+        min-width: 32px;
+        height: 26px;
+    }
 }
 .links{ 
     display:flex; 
@@ -196,6 +272,32 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
         margin: 0 !important;
     }
     .links{ display:none }
+}
+
+/* Ensure burger, drawer and scrim are always hidden on desktop, regardless of language */
+@media (min-width: 761px) {
+    .burger {
+        display: none !important;
+    }
+    .links {
+        display: flex !important;
+    }
+    .drawer {
+        display: none !important;
+    }
+    .scrim {
+        display: none !important;
+    }
+    /* Also hide for RTL languages */
+    html[dir="rtl"] .burger {
+        display: none !important;
+    }
+    html[dir="rtl"] .drawer {
+        display: none !important;
+    }
+    html[dir="rtl"] .scrim {
+        display: none !important;
+    }
 }
 
 /* Drawer */
@@ -888,10 +990,72 @@ html, body { overflow-x:hidden; }
     animation: field-energy 4s ease-in-out infinite;
 }
 
+/* RTL Support */
+html[dir="rtl"] {
+    direction: rtl;
+}
+
+/* Language selector always stays on the left with same order, regardless of RTL/LTR */
+html[dir="rtl"] .lang-selector-wrapper {
+    left: 8px;
+    right: auto;
+    flex-direction: row; /* Keep EN RU HE AR order */
+    direction: ltr; /* Force LTR for buttons */
+}
+
+html[dir="rtl"] .nav-row {
+    padding-left: 180px;
+    padding-right: 0;
+}
+
+@media (max-width: 900px) {
+    html[dir="rtl"] .nav-row {
+        padding-left: 160px;
+    }
+}
+
+@media (max-width: 760px) {
+    html[dir="rtl"] .nav-row {
+        padding-left: 140px;
+    }
+    
+    html[dir="rtl"] .lang-selector-wrapper {
+        left: 6px;
+        right: auto;
+        flex-direction: row; /* Keep EN RU HE AR order */
+        direction: ltr; /* Force LTR for buttons */
+    }
+}
+
+html[dir="rtl"] .burger {
+    right: auto;
+    left: var(--pad);
+}
+
+html[dir="rtl"] .drawer {
+    inset: 0 0 0 auto;
+    transform: translateX(100%);
+}
+
+html[dir="rtl"] .drawer.open {
+    transform: none;
+}
+
+html[dir="rtl"] .nav-btn.prev {
+    left: auto;
+    right: 20px;
+}
+
+html[dir="rtl"] .nav-btn.next {
+    right: auto;
+    left: 20px;
+}
+
+
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce){
     .btn, .tile, .press-item.glass::before, .card.glass::before, .logo::before, 
-    .skeleton, .loading::after, .toast, .contact-icon, .kpi { transition:none; animation:none }
+    .skeleton, .loading::after, .toast, .contact-icon, .kpi, .lang-selector, .lang-dropdown { transition:none; animation:none }
 }
 
 /* Mobile optimizations - Updated */

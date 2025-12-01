@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en" id="htmlRoot">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CLNIF - Champions League for Neighborhoods in Football</title>
+    <title id="pageTitle" data-i18n="meta.title">CLNIF - Champions League for Neighborhoods in Football</title>
 
-    <meta name="description" content="CLNIF unites youth and neighborhoods through football. Explore our mission, programs, media, gallery and transparency.">
+    <meta name="description" id="pageDescription" data-i18n="meta.description" content="CLNIF unites youth and neighborhoods through football. Explore our mission, programs, media, gallery and transparency.">
     <meta name="theme-color" content="#05060a" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -66,32 +66,38 @@
 <div class="progress-container">
     <div class="progress-bar" id="progressBar"></div>
 </div>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="meta.skipLink">Skip to content</a>
 
 <header class="site-top">
     <div class="container nav-row">
+        <div class="lang-selector-wrapper">
+            <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="he" aria-label="עברית">HE</button>
+            <button class="lang-btn" data-lang="ar" aria-label="العربية">AR</button>
+        </div>
         <nav class="links" aria-label="Primary">
-            <a href="#top" data-spy-link aria-current="page">Home</a>
-            <a href="#about" data-spy-link>About</a>
-            <a href="#support" data-spy-link>How to Support</a>
-            <a href="#transparency" data-spy-link>Transparency</a>
-            <a href="#press" data-spy-link>Media</a>
-            <a href="#gallery" data-spy-link>Gallery</a>
-            <a href="#contact" data-spy-link>Contact</a>
+            <a href="#top" data-spy-link aria-current="page" data-i18n="nav.home">Home</a>
+            <a href="#about" data-spy-link data-i18n="nav.about">About</a>
+            <a href="#support" data-spy-link data-i18n="nav.support">How to Support</a>
+            <a href="#transparency" data-spy-link data-i18n="nav.transparency">Transparency</a>
+            <a href="#press" data-spy-link data-i18n="nav.press">Media</a>
+            <a href="#gallery" data-spy-link data-i18n="nav.gallery">Gallery</a>
+            <a href="#contact" data-spy-link data-i18n="nav.contact">Contact</a>
         </nav>
 
-        <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">☰</button>
+        <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer" data-i18n-aria="aria.openMenu">☰</button>
     </div>
 
     <aside id="drawer" class="drawer" aria-hidden="true" aria-label="Mobile">
-        <button class="close" aria-label="Close menu">✕</button>
-        <a href="#top" data-spy-link aria-current="page">Home</a>
-        <a href="#about" data-spy-link>About</a>
-        <a href="#support" data-spy-link>How to Support</a>
-        <a href="#transparency" data-spy-link>Transparency</a>
-        <a href="#press" data-spy-link>Media</a>
-        <a href="#gallery" data-spy-link>Gallery</a>
-        <a href="#contact" data-spy-link>Contact</a>
+        <button class="close" aria-label="Close menu" data-i18n-aria="aria.closeMenu">✕</button>
+        <a href="#top" data-spy-link aria-current="page" data-i18n="nav.home">Home</a>
+        <a href="#about" data-spy-link data-i18n="nav.about">About</a>
+        <a href="#support" data-spy-link data-i18n="nav.support">How to Support</a>
+        <a href="#transparency" data-spy-link data-i18n="nav.transparency">Transparency</a>
+        <a href="#press" data-spy-link data-i18n="nav.press">Media</a>
+        <a href="#gallery" data-spy-link data-i18n="nav.gallery">Gallery</a>
+        <a href="#contact" data-spy-link data-i18n="nav.contact">Contact</a>
     </aside>
     <div class="scrim" hidden></div>
 </header>
@@ -114,14 +120,14 @@
     <div class="hero-center container">
         <div class="hero-box glass">
             <h1 class="display">
-                Champions League <span class="accent">for Neighborhoods</span><br><span class="nowrap">in Football</span>
+                <span data-i18n="hero.title">Champions League</span> <span class="accent" data-i18n="hero.titleAccent">for Neighborhoods</span><br><span class="nowrap" data-i18n="hero.titleSuffix">in Football</span>
             </h1>
-            <p class="lead">
+            <p class="lead" data-i18n="hero.lead">
                 We connect youth and neighborhoods through football. Inclusion, respect, leadership and fair play.
             </p>
             <div class="cta">
-                <a class="btn primary neon" href="#about"><span>Learn more</span></a>
-                <a class="btn neon" href="#transparency"><span>Transparency</span></a>
+                <a class="btn primary neon" href="#about"><span data-i18n="hero.learnMore">Learn more</span></a>
+                <a class="btn neon" href="#transparency"><span data-i18n="hero.transparency">Transparency</span></a>
             </div>
         </div>
     </div>
@@ -132,15 +138,15 @@
     <section id="about" class="section container" data-spy-section>
         <div class="glass split">
             <div>
-                <h2>Our Mission</h2>
-                <p class="muted">
+                <h2 data-i18n="about.mission">Our Mission</h2>
+                <p class="muted" data-i18n="about.missionText">
                     We empower young people and strengthen neighborhoods by using football as a tool for education, health, and social cohesion.
                     We work with local communities, schools, and partners to provide safe activities, mentoring, and leadership opportunities.
                 </p>
                 <ul class="check">
-                    <li>Inclusive access for all backgrounds</li>
-                    <li>Fair play and safety on and off the field</li>
-                    <li>Clear governance and open communication</li>
+                    <li data-i18n="about.missionPoint1">Inclusive access for all backgrounds</li>
+                    <li data-i18n="about.missionPoint2">Fair play and safety on and off the field</li>
+                    <li data-i18n="about.missionPoint3">Clear governance and open communication</li>
                 </ul>
             </div>
             <figure class="media">
@@ -149,22 +155,22 @@
         </div>
 
         <div class="programs-section">
-            <h3>Our Programs</h3>
+            <h3 data-i18n="about.programs">Our Programs</h3>
             <div class="grid-3">
                 <article class="card glass">
-                    <span class="chip">League</span>
-                    <h4>Neighborhood League</h4>
-                    <p class="muted">Seasonal tournaments and trainings that build teamwork, discipline and healthy lifestyles.</p>
+                    <span class="chip" data-i18n="about.programLeague">League</span>
+                    <h4 data-i18n="about.programLeagueTitle">Neighborhood League</h4>
+                    <p class="muted" data-i18n="about.programLeagueDesc">Seasonal tournaments and trainings that build teamwork, discipline and healthy lifestyles.</p>
                 </article>
                 <article class="card glass">
-                    <span class="chip">Clinics</span>
-                    <h4>Workshops & Clinics</h4>
-                    <p class="muted">Skills with coaches and mentors: technique, communication, conflict resolution, personal safety.</p>
+                    <span class="chip" data-i18n="about.programClinics">Clinics</span>
+                    <h4 data-i18n="about.programClinicsTitle">Workshops & Clinics</h4>
+                    <p class="muted" data-i18n="about.programClinicsDesc">Skills with coaches and mentors: technique, communication, conflict resolution, personal safety.</p>
                 </article>
                 <article class="card glass">
-                    <span class="chip">Community</span>
-                    <h4>Community Events</h4>
-                    <p class="muted">Open trainings, friendly matches and meetups that bring families, volunteers and partners together.</p>
+                    <span class="chip" data-i18n="about.programCommunity">Community</span>
+                    <h4 data-i18n="about.programCommunityTitle">Community Events</h4>
+                    <p class="muted" data-i18n="about.programCommunityDesc">Open trainings, friendly matches and meetups that bring families, volunteers and partners together.</p>
                 </article>
             </div>
         </div>
@@ -172,64 +178,64 @@
 
     <section class="section container">
         <div class="kpi-grid">
-            <div class="kpi"><div class="kpi-n">32,000+</div><div class="kpi-l">Players</div></div>
-            <div class="kpi"><div class="kpi-n">2,300+</div><div class="kpi-l">Teams</div></div>
-            <div class="kpi"><div class="kpi-n">70+</div><div class="kpi-l">Cities &amp; Villages</div></div>
-            <div class="kpi"><div class="kpi-n">20,000+</div><div class="kpi-l">On waitlist</div></div>
+            <div class="kpi"><div class="kpi-n">32,000+</div><div class="kpi-l" data-i18n="kpi.players">Players</div></div>
+            <div class="kpi"><div class="kpi-n">2,300+</div><div class="kpi-l" data-i18n="kpi.teams">Teams</div></div>
+            <div class="kpi"><div class="kpi-n">70+</div><div class="kpi-l" data-i18n="kpi.cities">Cities &amp; Villages</div></div>
+            <div class="kpi"><div class="kpi-n">20,000+</div><div class="kpi-l" data-i18n="kpi.waitlist">On waitlist</div></div>
         </div>
     </section>
 
 
     <section id="support" class="section container" data-spy-section>
         <div class="head">
-            <h2>How to Support</h2>
-            <p class="muted">Our organization thrives on support from generous individuals and organizations. Every contribution makes a meaningful difference in empowering youth and strengthening communities.</p>
+            <h2 data-i18n="support.title">How to Support</h2>
+            <p class="muted" data-i18n="support.intro">Our organization thrives on support from generous individuals and organizations. Every contribution makes a meaningful difference in empowering youth and strengthening communities.</p>
         </div>
 
         <div class="grid-3">
             <article class="card glass">
                 <span class="chip">🇮🇱</span>
-                <h3>Bank Transfer (Israel)</h3>
+                <h3 data-i18n="support.bankTitle">Bank Transfer (Israel)</h3>
                 <div class="support-details">
-                    <p><strong>Bank:</strong> Bank Leumi (10)</p>
-                    <p><strong>Branch:</strong> 891</p>
-                    <p><strong>Account Number:</strong> 08894457</p>
-                    <p><strong>Account Name:</strong> Champions League for Neighborhoods in Football</p>
-                    <p><strong>SWIFT:</strong> LUMIILITXXX</p>
+                    <p><strong data-i18n="support.bank">Bank:</strong> Bank Leumi (10)</p>
+                    <p><strong data-i18n="support.branch">Branch:</strong> 891</p>
+                    <p><strong data-i18n="support.accountNumber">Account Number:</strong> 08894457</p>
+                    <p><strong data-i18n="support.accountName">Account Name:</strong> Champions League for Neighborhoods in Football</p>
+                    <p><strong data-i18n="support.swift">SWIFT:</strong> LUMIILITXXX</p>
                 </div>
             </article>
 
             <article class="card glass">
                 <span class="chip">🌍</span>
-                <h3>International Transfer</h3>
+                <h3 data-i18n="support.internationalTitle">International Transfer</h3>
                 <div class="support-details">
-                    <p><strong>IBAN:</strong> IL260108910000008894457</p>
-                    <p><strong>SWIFT:</strong> LUMIILITXXX</p>
-                    <p><strong>Bank Name:</strong> Bank Leumi</p>
-                    <p><strong>Branch:</strong> 891</p>
-                    <p><strong>Account Name:</strong> Champions League for Neighborhoods in Football</p>
+                    <p><strong data-i18n="support.iban">IBAN:</strong> IL260108910000008894457</p>
+                    <p><strong data-i18n="support.swift">SWIFT:</strong> LUMIILITXXX</p>
+                    <p><strong data-i18n="support.bankName">Bank Name:</strong> Bank Leumi</p>
+                    <p><strong data-i18n="support.branch">Branch:</strong> 891</p>
+                    <p><strong data-i18n="support.accountName">Account Name:</strong> Champions League for Neighborhoods in Football</p>
                 </div>
             </article>
 
             <article class="card glass">
                 <span class="chip">🇺🇸</span>
-                <h3>US Tax-Deductible Donations</h3>
+                <h3 data-i18n="support.usTitle">US Tax-Deductible Donations</h3>
                 <div class="support-details">
-                    <p>For US citizens, donations are tax-deductible through our partnership with P.E.F. Israel Endowment Funds.</p>
-                    <p><strong>Organization ID:</strong> 58-0739340</p>
-                    <a class="btn neon" href="https://pefisrael.org/charity/champions-league-for-neighborhoods/" target="_blank" rel="noopener"><span>Donate via P.E.F.</span></a>
+                    <p data-i18n="support.usText">For US citizens, donations are tax-deductible through our partnership with P.E.F. Israel Endowment Funds.</p>
+                    <p><strong data-i18n="support.orgId">Organization ID:</strong> 58-0739340</p>
+                    <a class="btn neon" href="https://pefisrael.org/charity/champions-league-for-neighborhoods/" target="_blank" rel="noopener"><span data-i18n="support.donateButton">Donate via P.E.F.</span></a>
                 </div>
             </article>
         </div>
 
         <div class="support-note">
             <div class="card glass">
-                <h3>Important Information</h3>
+                <h3 data-i18n="support.importantTitle">Important Information</h3>
                 <ul class="check">
-                    <li>All donations are used directly for youth programs and community development</li>
-                    <li>We provide receipts for all contributions</li>
-                    <li>US donations through P.E.F. are tax-deductible under section 501(c)(3)</li>
-                    <li>For questions about donations, contact us at info@clnif.org</li>
+                    <li data-i18n="support.important1">All donations are used directly for youth programs and community development</li>
+                    <li data-i18n="support.important2">We provide receipts for all contributions</li>
+                    <li data-i18n="support.important3">US donations through P.E.F. are tax-deductible under section 501(c)(3)</li>
+                    <li data-i18n="support.important4">For questions about donations, contact us at info@clnif.org</li>
                 </ul>
             </div>
         </div>
@@ -237,30 +243,30 @@
 
     <section id="transparency" class="section container" data-spy-section>
         <div class="head">
-            <h2>Transparency</h2>
-            <p class="muted">We are a registered non-profit association and are committed to accountability. Our bylaws, annual balances, and bank ownership confirmation are available to the public.</p>
+            <h2 data-i18n="transparency.title">Transparency</h2>
+            <p class="muted" data-i18n="transparency.intro">We are a registered non-profit association and are committed to accountability. Our bylaws, annual balances, and bank ownership confirmation are available to the public.</p>
         </div>
 
         <div class="grid-3">
             <article class="card glass">
-                <h3>Registered NPO</h3>
-                <p>Israel NPO Reg. No.: <strong>580739340</strong></p>
-                <p><a class="btn neon" href="https://www.guidestar.org.il/organization/580739340" target="_blank" rel="noopener"><span>View on Guidestar</span></a></p>
+                <h3 data-i18n="transparency.npoTitle">Registered NPO</h3>
+                <p><span data-i18n="transparency.npoText">Israel NPO Reg. No.:</span> <strong>580739340</strong></p>
+                <p><a class="btn neon" href="https://www.guidestar.org.il/organization/580739340" target="_blank" rel="noopener"><span data-i18n="transparency.viewGuidestar">View on Guidestar</span></a></p>
             </article>
             <article class="card glass">
-                <h3>Neighborhoods</h3>
-                <p>We operate across Israel in multiple districts and neighborhoods and keep expanding every season.</p>
+                <h3 data-i18n="transparency.neighborhoodsTitle">Neighborhoods</h3>
+                <p data-i18n="transparency.neighborhoodsText">We operate across Israel in multiple districts and neighborhoods and keep expanding every season.</p>
             </article>
             <article class="card glass">
-                <h3>Youth &amp; Mentors</h3>
-                <p>Football plus mentorship, leadership development and community service with real life lessons.</p>
+                <h3 data-i18n="transparency.youthTitle">Youth &amp; Mentors</h3>
+                <p data-i18n="transparency.youthText">Football plus mentorship, leadership development and community service with real life lessons.</p>
             </article>
         </div>
     </section>
 
     <section id="press" class="section container" data-spy-section>
-        <h2>In the Media</h2>
-        <p class="muted">Selected coverage about CLNIF.</p>
+        <h2 data-i18n="press.title">In the Media</h2>
+        <p class="muted" data-i18n="press.subtitle">Selected coverage about CLNIF.</p>
         <div class="press">
             <a class="press-item glass" href="https://nws.report/sport/14977/" target="_blank" rel="noopener"><span class="dot"></span><strong>NWS Report</strong><em>מיזם חברתי: ליגת האלופות</em></a>
             <a class="press-item glass" href="https://haifa.mynet.co.il/sports/article/H1pQUAcLO" target="_blank" rel="noopener"><span class="dot"></span><strong>mynet Haifa</strong><em>מוזמנים להכיר את המהפכה</em></a>
@@ -273,8 +279,8 @@
 
     <section id="gallery" class="section container" data-spy-section>
         <div class="head">
-            <h2>Gallery</h2>
-            <a class="btn neon" href="https://drive.google.com/drive/folders/1okaNVw-cwL8y5Fq1bb2E5j1DUx00oJ62?usp=sharing" target="_blank" rel="noopener"><span>Google Drive gallery</span></a>
+            <h2 data-i18n="gallery.title">Gallery</h2>
+            <a class="btn neon" href="https://drive.google.com/drive/folders/1okaNVw-cwL8y5Fq1bb2E5j1DUx00oJ62?usp=sharing" target="_blank" rel="noopener"><span data-i18n="gallery.driveButton">Google Drive gallery</span></a>
         </div>
 
         <div class="gal">
@@ -288,66 +294,66 @@
             <a class="tile" href="#" data-lightbox-src="assets/gallery/photo8.jpg"><img src="assets/gallery/photo8.jpg" alt="Церемония награждения победителей турнира CLNIF" width="1200" height="750"></a>
         </div>
 
-        <div class="lightbox" role="dialog" aria-label="Image preview" aria-modal="true" aria-hidden="true" tabindex="-1">
-            <button class="close" aria-label="Close preview">✕</button>
-            <button class="nav-btn prev" aria-label="Previous image">‹</button>
-            <button class="nav-btn next" aria-label="Next image">›</button>
+        <div class="lightbox" role="dialog" aria-label="Image preview" aria-modal="true" aria-hidden="true" tabindex="-1" data-i18n-aria-label="aria.imagePreview">
+            <button class="close" aria-label="Close preview" data-i18n-aria="aria.closePreview">✕</button>
+            <button class="nav-btn prev" aria-label="Previous image" data-i18n-aria="aria.prevImage">‹</button>
+            <button class="nav-btn next" aria-label="Next image" data-i18n-aria="aria.nextImage">›</button>
             <img src="" alt="">
         </div>
     </section>
 
     <section class="section container">
-        <h2>Partners & Support</h2>
-        <p class="muted">We collaborate with organizations and sponsors to support facilities, transportation, and equipment for teams.</p>
+        <h2 data-i18n="partners.title">Partners & Support</h2>
+        <p class="muted" data-i18n="partners.intro">We collaborate with organizations and sponsors to support facilities, transportation, and equipment for teams.</p>
         <div class="logos">
             <div class="logo glass">
                 <img src="assets/hero.jpg" alt="Партнер 1" class="logo-image">
                 <div class="logo-overlay">
-                    <span class="logo-text">Партнер 1</span>
+                    <span class="logo-text">🦜</span>
                 </div>
             </div>
             <div class="logo glass">
                 <img src="assets/hero.jpg" alt="Партнер 2" class="logo-image">
                 <div class="logo-overlay">
-                    <span class="logo-text">Партнер 2</span>
+                    <span class="logo-text">🐗</span>
                 </div>
             </div>
             <div class="logo glass">
                 <img src="assets/hero.jpg" alt="Партнер 3" class="logo-image">
                 <div class="logo-overlay">
-                    <span class="logo-text">Партнер 3</span>
+                    <span class="logo-text">🐦</span>
                 </div>
             </div>
             <div class="logo glass">
                 <img src="assets/hero.jpg" alt="Партнер 4" class="logo-image">
                 <div class="logo-overlay">
-                    <span class="logo-text">Партнер 4</span>
+                    <span class="logo-text">🐅</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="section container" data-spy-section>
-        <h2>Contact</h2>
+        <h2 data-i18n="contact.title">Contact</h2>
         <div class="contact-grid">
             <div class="contact-item">
                 <div class="contact-icon">⚽</div>
-                <h3>Email</h3>
+                <h3 data-i18n="contact.email">Email</h3>
                 <a href="mailto:info@clnif.org?subject=CLNIF%20Contact" rel="noopener">info@clnif.org</a>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">🏆</div>
-                <h3>Instagram</h3>
+                <h3 data-i18n="contact.instagram">Instagram</h3>
                 <a href="https://www.instagram.com/leaguechampionneighborhoods/" target="_blank" rel="noopener">@leaguechampionneighborhoods</a>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">👥</div>
-                <h3>Facebook</h3>
+                <h3 data-i18n="contact.facebook">Facebook</h3>
                 <a href="https://www.facebook.com/p/%D7%9C%D7%99%D7%92%D7%AA-%D7%94%D7%90%D7%9C%D7%95%D7%A4%D7%95%D7%AA-%D7%9C%D7%A9%D7%9B%D7%95%D7%A0%D7%95%D7%AA-100065406224394/" target="_blank" rel="noopener">CLNIF Facebook</a>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">🎯</div>
-                <h3>YouTube</h3>
+                <h3 data-i18n="contact.youtube">YouTube</h3>
                 <a href="https://www.youtube.com/@%D7%9C%D7%99%D7%92%D7%AA%D7%94%D7%90%D7%9C%D7%95%D7%A4%D7%95%D7%AA%D7%9C%D7%A9%D7%9B%D7%95%D7%A0%D7%95%D7%AA" target="_blank" rel="noopener">CLNIF Channel</a>
             </div>
         </div>
@@ -357,9 +363,9 @@
 
 <footer class="foot">
     <div class="container foot-row">
-        <span>© <span id="y"></span> CLNIF. All rights reserved.</span>
+        <span>© <span id="y"></span> CLNIF. <span data-i18n="footer.rights">All rights reserved.</span></span>
         <span itemscope itemtype="https://schema.org/Organization">
-      Powered by
+      <span data-i18n="footer.poweredBy">Powered by</span>
       <a href="https://pumalabs.io" itemprop="url" target="_blank" rel="noopener noreferrer">
         <span itemprop="name">Puma Labs</span>
       </a>
