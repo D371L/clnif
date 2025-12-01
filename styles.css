@@ -1055,7 +1055,7 @@ html[dir="rtl"] .nav-btn.next {
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce){
     .btn, .tile, .press-item.glass::before, .card.glass::before, .logo::before, 
-    .skeleton, .loading::after, .toast, .contact-icon, .kpi, .lang-selector, .lang-dropdown { transition:none; animation:none }
+    .skeleton, .loading::after, .toast, .contact-icon, .kpi, .lang-selector-wrapper, .lang-btn { transition:none; animation:none }
 }
 
 /* Mobile optimizations - Updated */
