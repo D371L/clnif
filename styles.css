@@ -63,17 +63,48 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; overflow-x:hidden}
+html{scroll-behavior:smooth; overflow-x:hidden; width:100%; max-width:100%}
 body{
     margin:0; color:var(--ink); background:var(--bg);
     font:16px/1.65 'Rajdhani', Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif;
     -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     text-rendering:optimizeLegibility; font-variant-ligatures:none;
+    width:100%; max-width:100%; overflow-x:hidden;
 }
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--c3); outline-offset:2px}
-.skip-link{position:absolute; left:-999px; top:0; background:#000; color:#fff; padding:8px 12px; border-radius:8px; z-index:10000}
-.skip-link:focus{left:10px; top:10px}
+.skip-link{
+    position:absolute; 
+    left:-999px; 
+    top:0; 
+    background:#000; 
+    color:#fff; 
+    padding:8px 12px; 
+    border-radius:8px; 
+    z-index:10000;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+}
+.skip-link:focus{
+    left:10px; 
+    top:10px;
+    clip: auto;
+    overflow: visible;
+    width: auto;
+    height: auto;
+}
+
+/* RTL support for skip-link */
+html[dir="rtl"] .skip-link {
+    left: auto;
+    right: -999px;
+}
+html[dir="rtl"] .skip-link:focus {
+    left: auto;
+    right: 10px;
+}
 
 .container{ width:min(var(--max),100%); margin-inline:auto; padding-inline:var(--pad) }
 :target{ scroll-margin-top: 80px; }
@@ -92,6 +123,7 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     -webkit-backdrop-filter: blur(12px) saturate(140%);
     border-bottom:1px solid var(--glass);
     will-change: backdrop-filter;
+    width:100%; max-width:100%; left:0; right:0;
 }
 .nav-row{ 
     position:relative; 
@@ -100,54 +132,67 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     align-items:center; 
     padding:12px 0;
     overflow: hidden;
-    padding-left: 180px;
+    min-height: 56px; /* Prevent height changes */
+    box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
     .nav-row {
-        padding-left: 160px;
+        padding-left: 160px; /* Space for language buttons on tablet */
+    }
+}
+
+@media (min-width: 901px) {
+    .nav-row {
+        padding-left: 0; /* No padding on desktop - language buttons are absolutely positioned */
     }
 }
 
 /* Language Selector */
 .lang-selector-wrapper {
     position: absolute;
-    left: 8px;
+    left: 0; /* At the very left edge */
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) translateX(-4px); /* Shift more left */
     z-index: 10;
     display: flex;
     flex-direction: row; /* Always left-to-right order */
-    gap: 3px;
+    gap: 1px; /* Minimal gap */
     align-items: center;
     direction: ltr; /* Force LTR direction for language buttons */
+    width: auto;
+    height: auto;
+    contain: layout style; /* Prevent layout shifts */
+    padding-left: calc(var(--pad) - 4px); /* Reduced padding */
 }
 
 .lang-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 10px;
+    padding: 4px 7px; /* Further reduced padding */
     background: rgba(255,255,255,.05);
     border: 1px solid var(--glass);
-    border-radius: 6px;
+    border-radius: 5px;
     color: var(--muted);
     font-family: var(--nav-font);
     font-weight: 600;
-    font-size: 10px;
+    font-size: 8px; /* Smaller font */
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px; /* Minimal letter spacing */
     cursor: pointer;
-    transition: all var(--transition-normal);
-    min-width: 36px;
-    height: 28px;
+    transition: background-color var(--transition-normal), border-color var(--transition-normal), color var(--transition-normal), box-shadow var(--transition-normal);
+    min-width: 30px; /* Smaller min-width */
+    width: auto;
+    height: 24px; /* Smaller height */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .lang-btn:hover {
     background: rgba(255,255,255,.08);
     border-color: rgba(0,208,132,.3);
     color: var(--ink);
-    transform: translateY(-1px);
 }
 
 .lang-btn.active {
@@ -161,20 +206,27 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 @media (max-width: 760px) {
     .nav-row {
         padding-left: 140px;
+        min-height: 52px; /* Fixed height for mobile */
     }
     
     .lang-selector-wrapper {
-        left: 6px;
-        gap: 2px;
+        left: 0; /* At the very left edge */
+        transform: translateY(-50%) translateX(-4px); /* Shift more left */
+        padding-left: calc(var(--pad) - 4px); /* Reduced padding */
+        gap: 1px; /* Minimal gap */
         flex-direction: row; /* Keep order */
         direction: ltr; /* Force LTR */
+        contain: layout style; /* Prevent layout shifts */
     }
     
     .lang-btn {
         padding: 5px 8px;
         font-size: 9px;
         min-width: 32px;
+        width: auto;
         height: 26px;
+        flex-shrink: 0; /* Prevent shrinking */
+        box-sizing: border-box;
     }
 }
 .links{ 
@@ -187,6 +239,13 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     border-radius: 16px;
     background: rgba(255,255,255,.02);
     border: 1px solid rgba(255,255,255,.05);
+    min-width: 0; /* Allow flex shrinking */
+}
+
+@media (min-width: 761px) {
+    .links {
+        flex: 0 0 auto; /* Don't stretch on desktop - center it */
+    }
 }
 
 .links a{
@@ -205,8 +264,11 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
     color:var(--muted);
     background: transparent;
     border: none;
-    transition: all var(--transition-normal);
+    transition: color var(--transition-normal), background-color var(--transition-normal);
     cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+    flex-shrink: 0; /* Prevent shrinking */
+    box-sizing: border-box;
 }
 .links a:hover {
     color: var(--ink);
@@ -270,8 +332,16 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
         min-height: 40px !important;
         padding: 0 !important;
         margin: 0 !important;
+        right: var(--pad) !important; /* Always on the right */
+        left: auto !important;
     }
     .links{ display:none }
+    
+    /* Ensure burger stays on right for RTL too */
+    html[dir="rtl"] .burger {
+        right: var(--pad) !important;
+        left: auto !important;
+    }
 }
 
 /* Ensure burger, drawer and scrim are always hidden on desktop, regardless of language */
@@ -302,13 +372,38 @@ h1,h2,h3,h4,h5,h6,.display,.links a{
 
 /* Drawer */
 .drawer{
-    position:fixed; inset:0 auto 0 0; width:min(86%,340px); height:100vh;
+    position:fixed; 
+    inset:0 auto 0 0; 
+    width:min(86%,340px); 
+    height:100vh;
     background:rgba(8,10,16,.92);
     backdrop-filter: blur(12px);
     border-right:1px solid var(--glass);
-    transform:translateX(-100%); transition:transform .25s ease; padding:18px; z-index:70
+    transform:translateX(-100%); 
+    transition:transform .25s ease; 
+    padding:18px; 
+    z-index:70
 }
 .drawer.open{ transform:none }
+
+/* Mobile: drawer opens from top */
+@media (max-width: 760px) {
+    .drawer {
+        inset: 0 0 auto 0; /* Full width from top */
+        width: 100%;
+        height: auto;
+        max-height: 100vh;
+        border-right: none;
+        border-bottom: 1px solid var(--glass);
+        transform: translateY(-100%); /* Slide from top */
+        padding: 60px 20px 20px;
+        overflow-y: auto;
+    }
+    
+    .drawer.open {
+        transform: translateY(0); /* Slide down */
+    }
+}
 .drawer a{
     display:block; 
     padding:14px 18px; 
@@ -997,48 +1092,82 @@ html[dir="rtl"] {
 
 /* Language selector always stays on the left with same order, regardless of RTL/LTR */
 html[dir="rtl"] .lang-selector-wrapper {
-    left: 8px;
+    left: 0; /* At the very left edge */
     right: auto;
+    transform: translateY(-50%) translateX(-4px); /* Shift more left */
+    padding-left: calc(var(--pad) - 4px); /* Reduced padding */
     flex-direction: row; /* Keep EN RU HE AR order */
     direction: ltr; /* Force LTR for buttons */
 }
 
 html[dir="rtl"] .nav-row {
-    padding-left: 180px;
+    padding-left: 0; /* No padding on desktop - language buttons are absolutely positioned */
     padding-right: 0;
+    min-height: 56px; /* Same height as LTR */
 }
 
 @media (max-width: 900px) {
     html[dir="rtl"] .nav-row {
-        padding-left: 160px;
+        padding-left: 160px; /* Space for language buttons on tablet */
+        min-height: 56px;
+    }
+}
+
+@media (min-width: 901px) {
+    html[dir="rtl"] .nav-row {
+        padding-left: 0; /* No padding on desktop */
+        padding-right: 0;
     }
 }
 
 @media (max-width: 760px) {
     html[dir="rtl"] .nav-row {
         padding-left: 140px;
+        min-height: 52px; /* Same height as LTR mobile */
     }
     
     html[dir="rtl"] .lang-selector-wrapper {
-        left: 6px;
+        left: 0; /* At the very left edge */
         right: auto;
+        transform: translateY(-50%) translateX(-4px); /* Shift more left */
+        padding-left: calc(var(--pad) - 4px); /* Reduced padding */
         flex-direction: row; /* Keep EN RU HE AR order */
         direction: ltr; /* Force LTR for buttons */
+        contain: layout style; /* Prevent layout shifts */
     }
 }
 
+/* Burger menu always stays on the right, regardless of RTL/LTR */
 html[dir="rtl"] .burger {
-    right: auto;
-    left: var(--pad);
+    right: var(--pad);
+    left: auto;
 }
 
-html[dir="rtl"] .drawer {
-    inset: 0 0 0 auto;
-    transform: translateX(100%);
+/* Drawer opens from top on mobile for all languages */
+@media (max-width: 760px) {
+    html[dir="rtl"] .drawer {
+        inset: 0 0 auto 0; /* Full width from top */
+        width: 100%;
+        transform: translateY(-100%); /* Slide from top */
+        border-right: none;
+        border-bottom: 1px solid var(--glass);
+    }
+    
+    html[dir="rtl"] .drawer.open {
+        transform: translateY(0); /* Slide down */
+    }
 }
 
-html[dir="rtl"] .drawer.open {
-    transform: none;
+/* Desktop: drawer opens from left for LTR, right for RTL */
+@media (min-width: 761px) {
+    html[dir="rtl"] .drawer {
+        inset: 0 0 0 auto;
+        transform: translateX(100%);
+    }
+    
+    html[dir="rtl"] .drawer.open {
+        transform: none;
+    }
 }
 
 html[dir="rtl"] .nav-btn.prev {
@@ -1049,6 +1178,71 @@ html[dir="rtl"] .nav-btn.prev {
 html[dir="rtl"] .nav-btn.next {
     right: auto;
     left: 20px;
+}
+
+/* Mobile RTL fixes */
+@media (max-width: 768px) {
+    html[dir="rtl"] .site-top {
+        position: sticky;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+    
+    html[dir="rtl"] .nav-row {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 140px;
+        padding-right: var(--pad);
+        box-sizing: border-box;
+    }
+    
+    html[dir="rtl"] .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: var(--pad);
+        padding-right: var(--pad);
+        box-sizing: border-box;
+    }
+    
+    html[dir="rtl"] .hero {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html[dir="rtl"] .hero-center {
+        width: 100%;
+        max-width: 100%;
+        padding-left: var(--pad);
+        padding-right: var(--pad);
+        box-sizing: border-box;
+    }
+    
+    html[dir="rtl"] .hero-box {
+        width: calc(100% - 30px);
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+    
+    html[dir="rtl"] body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    html[dir="rtl"] main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    html[dir="rtl"] .section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 
@@ -1128,10 +1322,20 @@ html[dir="rtl"] .nav-btn.next {
         font-size: 16px;
     }
     
-    /* Mobile drawer improvements */
+    /* Mobile drawer improvements - opens from top */
     .drawer {
         width: 100%;
         padding: 60px 20px 20px;
+        inset: 0 0 auto 0;
+        height: auto;
+        max-height: 100vh;
+        border-right: none;
+        border-bottom: 1px solid var(--glass);
+        transform: translateY(-100%);
+    }
+    
+    .drawer.open {
+        transform: translateY(0);
     }
     
     .drawer a {
@@ -1145,6 +1349,18 @@ html[dir="rtl"] .nav-btn.next {
         top: 15px;
         right: 15px;
         font-size: 24px;
+    }
+    
+    /* RTL drawer also opens from top on mobile */
+    html[dir="rtl"] .drawer {
+        inset: 0 0 auto 0;
+        transform: translateY(-100%);
+        border-right: none;
+        border-bottom: 1px solid var(--glass);
+    }
+    
+    html[dir="rtl"] .drawer.open {
+        transform: translateY(0);
     }
     
     /* Section spacing */
